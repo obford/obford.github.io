@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obford IT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f7fa;
+      color: #1e2a38;
+      line-height: 1.6;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+    }
+    .logo {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #0097b2;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      animation: popIn 0.6s ease-out;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    p.subtitle {
+      font-size: 1rem;
+      color: #6b7280;
+      margin: 0 auto;
+      max-width: 500px;
+    }
+    .container {
+      flex: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    section {
+      padding: 3rem 0;
+    }
+    h2 {
+  font-size: 1.4rem;
+  color: #0097b2;
+  margin-bottom: 1rem;
+  display: inline-block;
+  border-left: none;
+  border-bottom: 2px solid #0097b2;
+  padding-left: 0;
+  padding-bottom: 0.25rem;
+}
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 0.75rem;
+    }
+    a {
+      color: #0097b2;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 2rem;
+      color: #6b7280;
+      background: #f5f7fa;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"></div>
+    <h1>Obford IT</h1>
+    <p class="subtitle">Freelance IT Infrastructure & Automation</p>
+  </header>
+
+  <main class="container">
+    <section class="fade-in">
+      <h2>About</h2>
+      <p>I’m Oliver — the founder and sole operator of Obford Ltd. I offer hands-on IT support with a personal, reliable approach. Whether you're troubleshooting legacy systems or modernising your infrastructure, I provide straightforward, effective solutions without the bloat.</p>
+    </section>
+
+    <section class="fade-in">
+      <h2>Services</h2>
+      <ul>
+        <li><strong>Infrastructure Support</strong> — for both on-prem and cloud systems</li>
+        <li><strong>Automation & Scripting</strong> — using PowerShell and Linux tools</li>
+        <li><strong>Microsoft 365 & Azure</strong> — setup, migration, and support</li>
+        <li><strong>Remote Helpdesk</strong> — ongoing or ad-hoc troubleshooting</li>
+      </ul>
+    </section>
+
+    <section class="fade-in">
+      <h2>Contact</h2>
+      <p>If you'd like to work with someone technical, responsive, and easy to deal with — just reach out.</p>
+      <p>Email: <a href="mailto:info@obford.co.uk">info@obford.co.uk</a></p>
+      <p>LinkedIn: <a href="https://uk.linkedin.com/in/oliver-beresford">https://uk.linkedin.com/in/oliver-beresford</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Obford Ltd. All rights reserved.
+  </footer>
+
+  <script>
+    // Simple scroll animation
+    const elements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
