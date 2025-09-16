@@ -3,282 +3,215 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <!-- UPDATE: Page title -->
-  <title>Obford IT</title>
+  <title>Obford IT Consultancy</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- UPDATE: Meta description -->
-  <meta name="description" content="Obford IT — Independent IT consultant for Infrastructure, Security, and DevOps.">
-  <style>
-    :root{
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #6b6b6b;
-      --card: #f6f6f6;
-      --border: #e9e9e9;
-      /* Pastel accents (solid colours only) */
-      --accent-1: #B8E1FF; /* blue */
-      --accent-2: #B8E1FF; /* green */
-      --accent-3: #FBE3EC; /* pink */
-      --accent-ink: #2b2b2b;
-      --radius: 16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
-      --focus: 0 0 0 3px rgba(184,225,255,.8);
-      color-scheme: light;
-    }
-
-    /* Dark mode (variables only; still flat colours) */
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg: #0f0f10;
-        --text: #f2f2f2;
-        --muted: #a1a1a1;
-        --card: #151516;
-        --border: #2a2a2c;
-        --accent-ink: #0f0f10; /* for text on pastel blocks */
-        --shadow: 0 10px 30px rgba(0,0,0,.5);
-        --focus: 0 0 0 3px rgba(184,225,255,.25);
-        color-scheme: dark;
-      }
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      letter-spacing:.2px;
-    }
-    .wrap{
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 24px clamp(16px, 4vw, 40px);
-    }
-
-    /* Header */
-    header{
-      position: sticky;
-      top: 0;
-      backdrop-filter: saturate(180%) blur(8px);
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
-    }
-    .nav{
-      display:flex;align-items:center;gap:24px;justify-content:space-between;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;
-    }
-    .brand-mark{
-      width:48px;height:48px;border-radius:6px;
-    }
-    .brand-name{font-weight:700;letter-spacing:.6px}
-
-    nav a{
-      text-decoration:none;color:inherit;opacity:.9;margin-left:20px;position:relative;
-    }
-    nav a::after{
-      content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;
-      /* keep gradient only here */
-      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
-      transition: width .25s ease;
-      border-radius:2px;
-    }
-    nav a:focus-visible{outline:none;box-shadow: var(--focus)}
-    nav a:hover::after{width:100%}
-
-    /* Hero */
-    .hero{
-      padding: 80px 0 32px;
-    }
-    .hero h1{
-      font-size: clamp(32px, 6vw, 64px);
-      line-height:1.1;margin:0 0 12px;
-      letter-spacing:.5px;
-    }
-    .sub{
-      font-size: clamp(16px, 2.6vw, 22px);
-      color: var(--muted);
-      max-width: 60ch;
-      margin: 0 0 28px;
-    }
-
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      appearance:none;border:1px solid var(--border);
-      padding:14px 18px;border-radius:12px;background: var(--bg);color:inherit;
-      text-decoration:none;box-shadow: var(--shadow);
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn:focus-visible{outline:none;box-shadow: var(--focus)}
-
-    /* Cards */
-    .grid{
-      display:grid;gap:18px;
-      grid-template-columns: repeat(12, 1fr);
-    }
-    .card{
-      grid-column: span 4;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-    @media (max-width: 900px){
-      .card{grid-column: span 6}
-    }
-    @media (max-width: 640px){
-      .card{grid-column: span 12}
-    }
-
-    .card h3{margin:10px 0 8px;font-size:20px;letter-spacing:.3px}
-    .muted{color: var(--muted)}
-
-    .icon{
-	  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
-	  background-color: var(--accent-2); /* solid pastel */
-	  border:1px solid var(--border);
-	  box-shadow: var(--shadow);
-	  color: var(--accent-ink); /* <-- keeps SVG stroke dark in all themes */
-	}
-
-    .section-title{
-      margin: 44px 0 12px;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2.2px;
-      color: var(--muted);
-    }
-
-    .split{
-      display:grid;gap:24px;grid-template-columns: 1.2fr .8fr;
-      align-items:start;
-    }
-    @media (max-width: 900px){.split{grid-template-columns: 1fr}}
-
-    .note{
-      padding:18px;border:1px solid var(--border);border-radius: var(--radius);
-      background-color: var(--accent-3); /* solid pastel */
-      color: var(--accent-ink);
-    }
-
-    footer{
-      margin-top:56px;padding:38px 0;border-top:1px solid var(--border);color: var(--muted);font-size:14px;
-    }
-
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  </style>
+  <meta name="description" content="Obford IT Consultancy – making complex IT simple, secure, and reliable." />
+  <link rel="preload" href="assets/logo.png" as="image">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#top">
-        <img class="brand-mark" src="obford.png">
-        <!-- UPDATE: Company name -->
-        <span class="brand-name">OBFORD IT</span>
-      </a>
-      <nav aria-label="Primary">
-        <!-- UPDATE: Navigation links if needed -->
-        <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact">Contact</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" width="44" height="44" alt="Obford bear logo" loading="eager" decoding="async" />
+        <span class="brand-name">OBFORD</span>
+      </div>
+      <nav aria-label="Primary" class="nav">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <ul id="primary-nav" class="nav-list">
+          <li><a href="#who">Who I Am</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#cases">Case Studies</a></li>
+          <li><a href="#contact" class="cta">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-    <main id="top">
-    <section class="wrap hero">
-      <!-- UPDATE: Hero headline -->
-      <h1>Independent IT Consulting</h1>
-      <!-- UPDATE: Hero subtext -->
-      <p class="sub">Infrastructure • Security • DevOps <br> Calm, senior guidance and hands-on delivery for modern stacks.</p>
-      <div class="cta-row">
-        <!-- UPDATE: CTA links -->
-        <a class="btn" href="#contact">Start a conversation</a>
-        <a class="btn" href="#services">Explore services</a>
-      </div>
-    </section>
-
-    <section id="services" class="wrap">
-      <div class="section-title">Services</div>
-      <div class="grid">
-        <!-- UPDATE: Service card 1 -->
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <rect x="3" y="4" width="18" height="6" rx="2"></rect>
-              <rect x="3" y="14" width="18" height="6" rx="2"></rect>
-              <path d="M7 7h.01M7 17h.01"></path>
-            </svg>
-          </div>
-          <h3>Infrastructure</h3>
-          <p class="muted">Cloud & on-prem foundations, networking, resilience, cost control.</p>
-        </article>
-
-        <!-- UPDATE: Service card 2 -->
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M12 3l7 4v5a9 9 0 1 1-14 0V7l7-4z"></path>
-              <circle cx="12" cy="13" r="3"></circle>
-            </svg>
-          </div>
-          <h3>Security</h3>
-          <p class="muted">Threat-aware design, hardening, IAM, reviews, and pragmatic controls.</p>
-        </article>
-
-        <!-- UPDATE: Service card 3 -->
-        <article class="card">
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M8 12a4 4 0 1 1 0-6h0l4 6-4 6h0a4 4 0 1 1 0-6"></path>
-              <path d="M16 12a4 4 0 1 0 0-6h0l-4 6 4 6h0a4 4 0 1 0 0-6"></path>
-            </svg>
-          </div>
-          <h3>DevOps</h3>
-          <p class="muted">CI/CD, IaC, observability, and developer experience without chaos.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="approach" class="wrap">
-      <div class="section-title">Approach</div>
-      <div class="split">
-        <!-- UPDATE: Approach text -->
-        <div>
-          <h2>Quietly effective</h2>
-          <p class="muted">I’m a single-agent consultant. That means direct access, short feedback loops, and delivery that feels calm. I prioritise clarity, reliability, and the smallest thing that actually works.</p>
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <div class="hero-brand">
+          <img class="logo" src="assets/logo.png" width="96" height="96" alt="Obford bear logo large" />
+        </div>
+        <h1 class="hero-title">Clarity From Complexity.</h1>
+        <p class="hero-subtitle">I make technology simple, secure, and reliable - with projects delivered for leading names across gaming, energy, retail, and infrastructure.</p>
+        <div class="hero-ctas">
+          <a class="button primary" href="#services">See Services</a>
+          <a class="button" href="#contact">Work With Me</a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="wrap">
-      <div class="section-title">Contact</div>
-      <div class="grid">
-        <div class="card" style="grid-column: span 12">
-		<!-- UPDATE: Contact card text -->
-		  <h3>Let’s talk</h3>
-		  <p class="muted">Tell me what you’re trying to achieve. I’ll suggest a simple path forward.</p>
-		  <div class="cta-row">
-		    <!-- UPDATE: Contact links -->
-		    <a class="btn" href="mailto:info@obford.com">Email</a>
-		    <a class="btn" href="https://uk.linkedin.com/in/oliver-beresford" target="_blank" rel="noopener">LinkedIn</a>
-		  </div>
+    <!-- PAST WORK -->
+    <section class="trusted">
+      <div class="container">
+        <p class="trusted-text">Companies I've Worked With</p>
+        <ul class="trusted-logos">
+          <li><img src="assets/playground-games.png" alt="Playground Games logo" /></li>
+          <li><img src="assets/baker-hughes.png" alt="Baker Hughes logo" /></li>
+          <li><img src="assets/tesco.png" alt="Tesco logo" /></li>
+          <li><img src="assets/terra-wortmann.png" alt="Terra / Wortmann logo" /></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WHO I AM -->
+    <section class="section" id="who">
+      <div class="container split">
+        <div class="panel stone reveal">
+          <h2>Who I Am</h2>
+          <p>Obford is a solo-run consultancy. I’ve been working in IT since 18, solving problems across hardware, software, networking, and data. At 23, I’ve already delivered for industries where downtime isn’t an option.</p>
+          <p>Some of my work includes:</p>
+          <ul class="ticks">
+            <li><strong>Playground Games</strong> - studio IT and custom internal software</li>
+            <li><strong>Baker Hughes</strong> - industrial servers for rigs and zero-failure systems</li>
+            <li><strong>Tesco</strong> - data analysis to inform new store locations</li>
+            <li><strong>Terra / Wortmann</strong> - hardware support and training on server/cloud platforms</li>
+          </ul>
+          <p>My promise: clear advice, practical solutions, and systems that just keep working.</p>
+        </div>
+        <div class="panel circuit reveal" aria-hidden="true">
+          <svg viewBox="0 0 600 400" class="circuit-svg">
+            <g class="circuit-lines">
+              <path d="M10 40 H300 V100 H590" />
+              <path d="M10 120 H260 V180 H590" />
+              <path d="M10 200 H220 V260 H590" />
+              <circle cx="300" cy="100" r="5"/>
+              <circle cx="260" cy="180" r="5"/>
+              <circle cx="220" cy="260" r="5"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>End-to-end IT support, designed to make your life easier.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="glyph">⟁</div>
+            <h3>Infrastructure &amp; Support</h3>
+            <p>Servers, networks, and patched systems - built and maintained to stay online and secure.</p>
+          </article>
+          <article class="card reveal">
+            <div class="glyph">◬</div>
+            <h3>Custom Software</h3>
+            <p>Applications written and deployed into production, tailored to sales, inventory, and operational needs.</p>
+          </article>
+          <article class="card reveal">
+            <div class="glyph">⋇</div>
+            <h3>Data &amp; Insight</h3>
+            <p>Business-facing data solutions that diagnose problems and inform better decisions.</p>
+          </article>
+          <article class="card reveal">
+            <div class="glyph">⌬</div>
+            <h3>Security &amp; Diagnosis</h3>
+            <p>From Linux to Windows, I provide audits, hardening, and troubleshooting to keep systems safe.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="section" id="cases">
+      <div class="container">
+        <div class="section-head">
+          <h2>Case Studies</h2>
+          <p>Real-world results for organisations that needed clarity and reliability.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3>Playground Games</h3>
+              <p>Ran IT for a studio and built custom internal software for production use.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3>Baker Hughes</h3>
+              <p>Sourced, built, and shipped industrial servers, including rack-mount and fanless zero-point-of-failure machines for rigs.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3>Tesco</h3>
+              <p>Analysed cell tower data using clustering algorithms to identify the best new store locations.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h3>Terra / Wortmann</h3>
+              <p>Supported hardware systems and trained others to support new server and cloud platforms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Got a tech problem? Let’s solve it together.</p>
+        </div>
+        <form class="contact-form" name="contact" method="post" action="#" onsubmit="return submitContact(event)">
+          <div class="grid">
+            <label> Name
+              <input type="text" name="name" required autocomplete="name">
+            </label>
+            <label> Email
+              <input type="email" name="email" required autocomplete="email">
+            </label>
+          </div>
+          <label> Company
+            <input type="text" name="company" autocomplete="organization">
+          </label>
+          <label> Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="button primary" type="submit">Send message</button>
+          </div>
+          <p class="form-note">This static form uses a demo handler. Replace <code>submitContact</code> with your backend or a service like Netlify Forms.</p>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">
-      © <span id="y"></span> Obford IT. All rights reserved.
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" width="32" height="32" alt="" aria-hidden="true" />
+        <span>OBFORD</span>
+      </div>
+      <nav aria-label="Footer">
+        <a href="#who">Who I Am</a>
+        <a href="#services">Services</a>
+        <a href="#cases">Case Studies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="copyright">© <span id="year"></span> Obford Ltd. All rights reserved.</p>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
+  <script src="script.js"></script>
 </body>
 </html>
