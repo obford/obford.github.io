@@ -260,7 +260,7 @@ input:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px v
 }
 .trusted-logos img {
   max-width: 120px; width: auto; height: auto; object-fit: contain;
-  filter: grayscale(100%) brightness(85%);
+  filter: grayscale(100%) brightness(150%);
   opacity: 0.85;
   transition: opacity 0.2s ease, filter 0.2s ease;
 }
