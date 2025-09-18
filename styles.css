@@ -28,11 +28,11 @@
   }
 }
 
-.logo { content: url("assets/obford-logo/obford-black.png"); }
+.logo { content: url("assets/obford-logo/obford-black-freed.png"); }
 
 /* dark theme → light logo */
 @media (prefers-color-scheme: dark) {
-  .logo { content: url("assets/obford-logo/obford-white.png"); }
+  .logo { content: url("assets/obford-logo/obford-white-freed.png"); }
 }
 
 * { box-sizing: border-box }
