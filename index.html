@@ -1,222 +1,123 @@
-<!doctype html>
+<!-- This HTML has been written with the help of the Gemini AI LLM -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Obford IT Consultancy</title>
-  <link rel="icon" href="assets/favicon-dark.ico" media="(prefers-color-scheme: light)" />
-  <!-- Dark Mode Favicons -->
-  <link rel="icon" href="assets/favicon-dark/favicon-dark.ico" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon-dark/apple-icon-57x57.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon-dark/apple-icon-60x60.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon-dark/apple-icon-72x72.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon-dark/apple-icon-76x76.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon-dark/apple-icon-114x114.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon-dark/apple-icon-120x120.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon-dark/apple-icon-144x144.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon-dark/apple-icon-152x152.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-dark/apple-icon-180x180.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-dark/android-icon-192x192.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-dark/favicon-32x32.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-dark/favicon-96x96.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-dark/favicon-16x16.png" media="(prefers-color-scheme: dark)">
-  <link rel="manifest" href="assets/favicon-dark/manifest.json" media="(prefers-color-scheme: dark)">
-  <meta name="msapplication-TileImage" content="assets/favicon-dark/ms-icon-144x144.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OBFORD | IT Consultancy</title>
 
-  <meta name="description" content="Obford IT Consultancy – making complex IT simple, secure, and reliable." />
-  <link rel="preload" href="assets/logo.png" as="image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <div class="brand">
-        <img class="logo" src="assets/obford-logo/obford-light.png" width="44" height="44" alt="Obford bear logo" loading="eager" decoding="async" />
-        <span class="brand-name">OBFORD</span>
-      </div>
-      <nav aria-label="Primary" class="nav">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-        <ul id="primary-nav" class="nav-list">
-          <li><a href="#who">Who Am I</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#cases">Case Studies</a></li>
-          <li><a href="#contact" class="cta">Contact</a></li>
-        </ul>
+  <link id="dynamic-favicon" rel="icon" type="image/png" sizes="32x32" href="assets/Logo/obford-black-favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/Logo/obford-black-favicon/apple-touch-icon.png">
+  <link rel="manifest" href="assets/Logo/obford-black-favicon/site.webmanifest">
+</head>
+
+<body class="mode-scroll">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <picture class="logo-small">
+        <source srcset="assets/Logo/obford-white.png" media="(prefers-color-scheme: dark)">
+        <img src="assets/Logo/obford-black.png" alt="OBFORD Logo" />
+      </picture>
+
+      <nav>
+        <a href="#services"><strong>SERVICES</strong></a>
+        <a href="#work"><strong>WORK</strong></a>
+        <a href="#contact"><strong>CONTACT</strong></a>
       </nav>
     </div>
   </header>
 
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-inner">
-        <div class="hero-brand">
-          <img class="logo" src="assets/obford-logo/obford-light.png" width="200" height="200" alt="Obford bear logo large" />
-        </div>
-        <h1 class="hero-title">OBFORD</h1>
-        <p class="hero-subtitle">Making technology simple, secure, and reliable - with projects delivered for leading names across gaming, energy, retail, and infrastructure.</p>
-        <div class="hero-ctas">
-          <a class="button primary" href="#services">See Services</a>
-          <a class="button" href="#contact">Work With Me</a>
-        </div>
+  <main class="snap-container">
+
+    <section id="hero" class="section hero snap">
+      <div class="section-inner">
+        <picture class="logo-large reveal">
+          <source srcset="assets/Logo/obford-white.png" media="(prefers-color-scheme: dark)">
+          <img src="assets/Logo/obford-black.png" alt="OBFORD Logo" />
+        </picture>
+
+        <h1 class="reveal">OBFORD</h1>
+
+        <p class="tagline reveal">
+          Independent IT consultancy delivering<br>
+          secure, reliable systems for growing teams.
+        </p>
       </div>
+      <div class="arrow section-arrow" data-scroll="#services"></div>
     </section>
 
-    <!-- PAST WORK -->
-    <section class="trusted">
-      <div class="container">
-        <p class="trusted-text">Companies I've Worked With</p>
-        <ul class="trusted-logos">
-          <li><img src="assets/playground-games.png" alt="Playground Games logo" /></li>
-          <li><img src="assets/baker-hughes.png" alt="Baker Hughes logo" /></li>
-          <li><img src="assets/beyond1.png" alt="Beyond" /></li>
-          <li><img src="assets/tesco.png" alt="Tesco logo" /></li>
-          <li><img src="assets/terra-wortmann.png" alt="Terra / Wortmann logo" /></li>
-        </ul>
+    <section id="services" class="section snap">
+      <div class="section-inner">
+        <h2 class="reveal">SERVICES</h2>
+        <p class="muted reveal">
+          IT Operations · Infrastructure · Automation · Security & reliability
+        </p>
+
+        <p class="reveal">
+          Practical consultancy focused on real-world IT operations, from end-user
+          environments and device fleets to infrastructure, tooling, and long-term reliability.
+        </p>
       </div>
+      <div class="arrow section-arrow" data-scroll="#work"></div>
     </section>
 
-    <!-- Who Am I -->
-    <section class="section" id="who">
-      <div class="container">
-        <div class="panel stone reveal">
-          <h2>Who Am I</h2>
-          <p>Hi, I’m Ollie. I run Obford - a solo consultancy focused on making complex IT work seamlessly for teams. I’ve spent over 5 years solving tough problems across hardware, software, networking, and data  - for industries where downtime simply isn’t an option.</p>
-          <p>My background spans both large studios like Playground Games, as well as smaller, more bespoke tech environments. That means I can bring enterprise-level solutions to teams of any size, delivering results that stick.</p>
-          <p>Some of my work includes:</p>
-          <ul class="ticks">
-            <li><strong>Playground Games</strong> - Running studio IT and creating custom tools to streamline workflows.</li>
-            <li><strong>Baker Hughes</strong> - Designing industrial-grade, failure-resistant server solutions for remote operations.</li>
-            <li><strong>Beyond</strong> - Using data analysis to guide decisions on new store locations.</li>
-            <li><strong>Terra / Wortmann</strong> - Supporting hardware systems and training teams on new server and cloud platforms.</li>
+    <section id="work" class="section snap">
+      <div class="section-inner">
+        <h2 class="reveal">WORK</h2>
+        <p class="reveal">
+          Hands-on delivery across gaming, energy, retail, and enterprise IT environments.
+        </p>
+
+        <p class="muted reveal">
+          Experience includes operating as a IT engineer within an Xbox Game Studio
+          supporting 500+ users, alongside enterprise support roles and infrastructure-focused work.
+        </p>
+
+        <div class="trusted reveal">
+          <p class="trusted-text">Companies I've Worked With</p>
+          <ul class="trusted-logos">
+            <li><img src="assets/xbox.png" alt="Xbox" /></li>
+            <li><img src="assets/playground-games.png" alt="Playground Games" /></li>
+            <li><img src="assets/baker-hughes.png" alt="Baker Hughes" /></li>
+            <li><img src="assets/tesco.png" alt="Tesco" /></li>
+            <li><img src="assets/terra-wortmann.png" alt="Terra / Wortmann" /></li>
           </ul>
-          <p>I’m all about providing clear advice, building systems that are easy to maintain, and making technology work reliably for the people who use it.</p>
         </div>
+
+        <p class="muted reveal">Selected case studies and portfolio coming soon.</p>
+      </div>
+      <div class="arrow section-arrow" data-scroll="#contact"></div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>Services</h2>
-          <p>End-to-end IT solutions, delivered with a focus on simplicity, reliability, and security.</p>
-        </div>
-        <div class="cards">
-          <article class="card reveal">
-            <div class="glyph">⟁</div>
-            <h3>Infrastructure &amp; Support</h3>
-            <p>From servers and networks to patching and system monitoring  - I build and maintain infrastructure that’s designed to keep running smoothly.</p>
-          </article>
-          <article class="card reveal">
-            <div class="glyph">◬</div>
-            <h3>Custom Software</h3>
-            <p>Custom applications tailored to your team’s needs  - whether it’s streamlining internal workflows or improving customer interactions.</p>
-          </article>
-          <article class="card reveal">
-            <div class="glyph">⋇</div>
-            <h3>Data &amp; Insight</h3>
-            <p>Data-driven solutions that help you make informed decisions, from business intelligence tools to diagnostic dashboards.</p>
-          </article>
-          <article class="card reveal">
-            <div class="glyph">⌬</div>
-            <h3>Security &amp; Diagnosis</h3>
-            <p>Whether it’s Linux or Windows, I conduct security audits, system hardening, and troubleshoot issues to ensure your systems are safe and reliable.</p>
-          </article>
-        </div>
+    <section id="contact" class="section snap contact-section">
+      <div class="section-inner">
+        <h2 class="reveal">CONTACT</h2>
+        <p class="muted reveal">
+          Consultancy, advisory, and operational support.
+        </p>
+        
+        <p class="contact-line reveal">
+          Not Live Yet :)
+        </p>
+
+        <p class="muted small reveal">UK-based · Remote or on-site</p>
+        
+        <p class="personal-link reveal">
+          <a href="about.html">About Me</a>
+          <span class="separator">|</span>
+          <a href="https://www.linkedin.com/in/oliver-beresford/" target="_blank">LinkedIn</a>
+        </p>
       </div>
     </section>
 
-    <!-- CASE STUDIES -->
-    <section class="section" id="cases">
-      <div class="container">
-        <div class="section-head">
-          <h2>Projects</h2>
-          <p>Real-world examples of how I’ve helped companies simplify their IT, improve performance, and scale effectively.</p>
-        </div>
-        <div class="timeline">
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Playground Games</h3>
-              <p>Managed day-to-day IT for a major gaming studio and built internal tools to improve workflow and resource planning.</p>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Baker Hughes</h3>
-              <p>Designed and deployed rugged, fail-safe servers for remote oil rigs, ensuring critical systems stayed operational in extreme environments.</p>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Beyond</h3>
-              <p>Used Python to analyze cell tower data, identifying optimal locations for new Tesco stores based on customer demand patterns.</p>
-            </div>
-          </div>
-          <div class="tl-item reveal">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Terra / Wortmann</h3>
-              <p>Supported large-scale hardware deployments and trained teams on new server and cloud technologies to improve internal IT operations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section contact" id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contact</h2>
-          <p>Got a tech challenge? Let’s solve it together.</p>
-        </div>
-        <form class="contact-form" name="contact" method="post" action="#" onsubmit="return submitContact(event)">
-          <div class="grid">
-            <label> Name
-              <input type="text" name="name" required autocomplete="name">
-            </label>
-            <label> Email
-              <input type="email" name="email" required autocomplete="email">
-            </label>
-          </div>
-          <label> Company
-            <input type="text" name="company" autocomplete="organization">
-          </label>
-          <label> Message
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <div class="form-actions">
-            <button class="button primary" type="submit">Send message</button>
-          </div>
-        </form>
-      </div>
-    </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="brand">
-        <img class="logo" src="assets/logo.png" width="32" height="32" alt="" aria-hidden="true" />
-        <span>OBFORD</span>
-      </div>
-      <nav aria-label="Footer">
-        <a href="#who">Who Am I</a>
-        <a href="#services">Services</a>
-        <a href="#cases">Case Studies</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <p class="copyright">© <span id="year"></span> Obford Ltd. All rights reserved.</p>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
