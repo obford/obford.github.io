@@ -1,14 +1,13 @@
-<!-- This HTML has been written with the help of the Gemini AI LLM -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OBFORD | IT Consultancy</title>
+  <title>OBFORD</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -19,101 +18,193 @@
 
 <body class="mode-scroll">
 
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <picture class="logo-small">
-        <source srcset="assets/Logo/obford-white.png" media="(prefers-color-scheme: dark)">
-        <img src="assets/Logo/obford-black.png" alt="OBFORD Logo" />
-      </picture>
-
-      <nav>
-        <a href="#services"><strong>SERVICES</strong></a>
-        <a href="#work"><strong>WORK</strong></a>
-        <a href="#contact"><strong>CONTACT</strong></a>
+      <a href="#hero" class="wordmark">OBFORD</a>
+      <nav class="site-nav">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="snap-container">
+  <main>
 
-    <section id="hero" class="section hero snap">
-      <div class="section-inner">
-        <picture class="logo-large reveal">
-          <source srcset="assets/Logo/obford-white.png" media="(prefers-color-scheme: dark)">
-          <img src="assets/Logo/obford-black.png" alt="OBFORD Logo" />
-        </picture>
+    <!-- ① HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-layout">
 
-        <h1 class="reveal">OBFORD</h1>
-
-        <p class="tagline reveal">
-          Independent IT consultancy delivering<br>
-          secure, reliable systems for growing teams.
-        </p>
-      </div>
-      <div class="arrow section-arrow" data-scroll="#services"></div>
-    </section>
-
-    <section id="services" class="section snap">
-      <div class="section-inner">
-        <h2 class="reveal">SERVICES</h2>
-        <p class="muted reveal">
-          IT Operations · Infrastructure · Automation · Security & reliability
-        </p>
-
-        <p class="reveal">
-          Practical consultancy focused on real-world IT operations, from end-user
-          environments and device fleets to infrastructure, tooling, and long-term reliability.
-        </p>
-      </div>
-      <div class="arrow section-arrow" data-scroll="#work"></div>
-    </section>
-
-    <section id="work" class="section snap">
-      <div class="section-inner">
-        <h2 class="reveal">WORK</h2>
-        <p class="reveal">
-          Hands-on delivery across gaming, energy, retail, and enterprise IT environments.
-        </p>
-
-        <p class="muted reveal">
-          Experience includes operating as a IT engineer within an Xbox Game Studio
-          supporting 500+ users, alongside enterprise support roles and infrastructure-focused work.
-        </p>
-
-        <div class="trusted reveal">
-          <p class="trusted-text">Companies I've Worked With</p>
-          <ul class="trusted-logos">
-            <li><img src="assets/Trusted/xbox.png" alt="Xbox" /></li>
-            <li><img src="assets/Trusted/playground-games.png" alt="Playground Games" /></li>
-            <li><img src="assets/Trusted/baker-hughes.png" alt="Baker Hughes" /></li>
-            <li><img src="assets/Trusted/tesco.png" alt="Tesco" /></li>
-            <li><img src="assets/Trusted/terra-wortmann.png" alt="Terra / Wortmann" /></li>
-          </ul>
+        <div class="hero-left">
+          <span class="hero-index">01</span>
         </div>
 
-        <p class="muted reveal">Selected case studies and portfolio coming soon.</p>
+        <div class="hero-right">
+          <div class="hero-main reveal">
+            <picture class="hero-logo-wrap">
+              <source srcset="assets/Logo/obford-white.png" media="(prefers-color-scheme: dark)">
+              <img src="assets/Logo/obford-black.png" alt="OBFORD" class="hero-logo" />
+            </picture>
+
+            <div class="hero-text">
+              <h1 class="hero-heading" id="easter-egg-trigger">
+                OBFORD<span class="hero-dot">.</span>
+              </h1>
+              <p class="hero-descriptor">
+                IT infrastructure &amp; operations
+              </p>
+              <div class="hero-meta">
+                <span>Oliver Beresford</span>
+                <span class="meta-sep">—</span>
+                <span>UK</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="arrow section-arrow" data-scroll="#contact"></div>
+
+      <button class="scroll-cue" data-scroll="#about" aria-label="Scroll to About">
+        <span class="scroll-cue-line"></span>
+        <span class="scroll-cue-label">Scroll</span>
+      </button>
     </section>
 
-    <section id="contact" class="section snap contact-section">
-      <div class="section-inner">
-        <h2 class="reveal">CONTACT</h2>
-        <p class="muted reveal">
-          Consultancy, advisory, and operational support.
-        </p>
-        
-        <p class="contact-line reveal">
-          Not Live Yet :)
-        </p>
+    <!-- ② ABOUT -->
+    <section id="about" class="section">
+      <div class="section-layout">
 
-        <p class="muted small reveal">UK-based · Remote or on-site</p>
-        
-        <p class="personal-link reveal">
-          <a href="about.html">About Me</a>
-          <span class="separator">|</span>
-          <a href="https://www.linkedin.com/in/oliver-beresford/" target="_blank">LinkedIn</a>
-        </p>
+        <div class="section-left">
+          <span class="section-index">02</span>
+          <span class="section-title-vert">About</span>
+        </div>
+
+        <div class="section-right">
+          <h2 class="section-heading reveal">
+            Engineer.<br>
+            <em>Contractor.</em>
+          </h2>
+
+          <div class="section-body">
+            <p class="reveal">
+              Obford Ltd is the privately held company of Oliver Beresford -
+              an IT engineer currently engaged as
+              Associate IT Infrastructure Engineer at Playground Games.
+            </p>
+            <p class="reveal muted">
+              Day-to-day work spans endpoint management, infrastructure operations,
+              internal tooling, and the full range of IT that keeps a large creative
+              studio running. The focus is always on systems that are reliable,
+              maintainable, and built to last.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ③ WORK -->
+    <section id="work" class="section section-ruled">
+      <div class="section-layout">
+
+        <div class="section-left">
+          <span class="section-index">03</span>
+          <span class="section-title-vert">Work</span>
+        </div>
+
+        <div class="section-right">
+          <h2 class="section-heading reveal">
+            Across gaming,<br>
+            <em>energy &amp; enterprise.</em>
+          </h2>
+
+          <p class="reveal muted section-intro">
+            Experience across gaming, energy, and enterprise IT environments.
+          </p>
+
+          <!-- Trusted -->
+          <div class="trusted reveal">
+            <p class="trusted-label">Companies I've worked with</p>
+            <ul class="trusted-logos">
+              <li><img src="assets/Trusted/xbox.png" alt="Xbox" /></li>
+              <li><img src="assets/Trusted/playground-games.png" alt="Playground Games" /></li>
+              <li><img src="assets/Trusted/baker-hughes.png" alt="Baker Hughes" /></li>
+              <li><img src="assets/Trusted/tesco.png" alt="Tesco" /></li>
+              <li><img src="assets/Trusted/terra-wortmann.png" alt="Terra / Wortmann" /></li>
+              <li><img src="assets/Trusted/wandsworth.png" alt="Wandsworth" /></li>
+            </ul>
+          </div>
+
+          <!-- Disciplines -->
+          <div class="disciplines reveal">
+            <div class="discipline">
+              <span class="discipline-num">I</span>
+              <div class="discipline-body">
+                <strong>Infrastructure</strong>
+                <p>Endpoint management, deployment pipelines, patch cycles, and cloud operations.</p>
+              </div>
+            </div>
+            <div class="discipline">
+              <span class="discipline-num">II</span>
+              <div class="discipline-body">
+                <strong>IT Operations</strong>
+                <p>Day-to-day support, provisioning, asset management, and onboarding.</p>
+              </div>
+            </div>
+            <div class="discipline">
+              <span class="discipline-num">III</span>
+              <div class="discipline-body">
+                <strong>Tooling &amp; Automation</strong>
+                <p>Internal apps, tools, and scripts that reduce manual overhead and improve reliability.</p>
+              </div>
+            </div>
+            <div class="discipline">
+              <span class="discipline-num">IV</span>
+              <div class="discipline-body">
+                <strong>Security &amp; Reliability</strong>
+                <p>Practical security posture and change management for stable, resilient systems.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ CONTACT -->
+    <section id="contact" class="section section-contact">
+      <div class="section-layout">
+
+        <div class="section-left">
+          <span class="section-index">04</span>
+          <span class="section-title-vert">Contact</span>
+        </div>
+
+        <div class="section-right">
+          <h2 class="section-heading reveal">
+            Currently<br>
+            <em>employed.</em>
+          </h2>
+
+          <div class="section-body">
+            <p class="reveal muted">
+              Full-time at Playground Games via Obford Ltd.<br>
+              Available for conversation via LinkedIn.
+            </p>
+
+            <a
+              href="https://www.linkedin.com/in/oliver-beresford/"
+              target="_blank"
+              class="cta-link reveal"
+            >
+              LinkedIn &rarr;
+            </a>
+
+            <p class="reveal location-note">UK-based &nbsp;·&nbsp; Remote or on-site</p>
+          </div>
+        </div>
+
       </div>
     </section>
 

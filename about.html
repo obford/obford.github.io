@@ -1,16 +1,15 @@
-<!-- This HTML has been written with the help of the Gemini AI LLM -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oliver Beresford | Profile</title>
+  <title>Oliver Beresford</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="about.css" />
 
   <link rel="icon" href="assets/Logo/obford-black-favicon/favicon-32x32.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="assets/Logo/obford-white-favicon/favicon-32x32.png" media="(prefers-color-scheme: dark)">
@@ -19,137 +18,152 @@
   <link rel="manifest" href="assets/Logo/obford-black-favicon/site.webmanifest">
 </head>
 
-<body class="mode-app">
+<body>
 
-  <nav class="corners">
-    <div class="corner top-left">
-      <a href="#" id="tl-link" class="nav-link nav-dynamic">Career</a>
-    </div>
+  <div class="grain" aria-hidden="true"></div>
 
-    <div class="corner top-right">
-      <a href="#" id="tr-link" class="nav-link nav-dynamic">Projects</a>
-    </div>
-
-    <div class="corner bottom-left">
-      <a href="index.html" class="nav-link">Obford Ltd</a>
-    </div>
-
-    <div class="corner bottom-right">
-      <a href="#" class="nav-link">Portfolio</a>
+  <nav class="top-nav">
+    <a href="index.html" class="nav-back">← Obford Ltd</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#person">Oliver</a>
     </div>
   </nav>
 
-  <main id="main-container">
+  <main>
 
-    <section id="home" class="view active">
-      <div class="center-content">
-        <h1 class="mega-title">OLIVER<br>BERESFORD</h1>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Oliver Beresford</p>
+        <h1 class="hero-title">IT engineer.<br><em>Curious person.</em></h1>
+        <p class="hero-sub">UK &nbsp;·&nbsp; Contracted through Obford Ltd</p>
       </div>
+      <div class="scroll-hint" aria-hidden="true">↓</div>
     </section>
 
-    <section id="career-current" class="view">
-      <div class="view-header">
-        <h2>CAREER</h2>
-        <p class="subtitle">IT Support Engineer</p>
-      </div>
-      
-      <div class="grid-2-col">
-        <div class="col role-details">
-            <h3>CURRENT ROLE</h3>
-            <p class="role-title">IT Support Engineer @ Playground Games Ltd</p>
-            <p class="role-date">2023–Present</p>
-            <p class="role-desc">
-                Sole provider of frontline L2 IT support for an Xbox Game Studio supporting over 100 employees.
-            </p>
-            <ul class="role-responsibilities">
-                <li>L2 End-User Support</li>
-                <li>New Starter Provisioning & IT Inductions</li>
-                <li>IT Asset & Inventory Management</li>
-                <li>Endpoint Deployment & Management Stack</li>
-                <li>OS & Application Patch Management</li>
-                <li>Internal IT Tools & Automation Development</li>
-            </ul>
-        </div>
+    <!-- WORK -->
+    <section class="section-work" id="work">
+      <div class="section-label">Work</div>
 
+      <div class="timeline">
 
-        <div class="col roadmap">
-          <h3>ROAD MAP</h3>
-          <ul class="roadmap-list">
-            <li>Azure Administrator (AZ104) Certification</li>
-            <li class="arrow-down"></li> 
-            <li>Terraform Associate</li>
-            <li class="arrow-down"></li>
-            <li>Linux Foundation Certified System Administrator</li>
-            <li class="arrow-down"></li>
-            <li class="highlight">ROLE CHANGE: Senior Cloud/Infrastructure Engineer</li>
-            <li class="arrow-down"></li>
-            <li>Certified Kubernetes Administrator</li>
-            <li class="arrow-down"></li>
-            <li>Azure Solutions Architect Expert</li>
-            <li class="arrow-down"></li>
-            <li class="highlight">ROLE CHANGE: Site Reliability Engineer</li>
+        <article class="timeline-item current">
+          <div class="timeline-meta">
+            <span class="timeline-date">2023 — Present</span>
+            <span class="timeline-tag">Current</span>
+          </div>
+          <h2 class="timeline-role">Associate IT Infrastructure Engineer</h2>
+          <p class="timeline-company">Playground Games &nbsp;·&nbsp; Xbox Game Studio</p>
+          <p class="timeline-desc">
+            Sole IT engineer for a 500-person game studio. End-to-end responsibility
+            for infrastructure, endpoint management, provisioning, internal tooling,
+            and the operations that keep a large creative studio running.
+          </p>
+          <ul class="timeline-list">
+            <li>L2 end-user support & IT operations</li>
+            <li>Endpoint deployment & patch management</li>
+            <li>New starter provisioning & inductions</li>
+            <li>Asset & inventory management</li>
+            <li>Internal tooling & automation</li>
           </ul>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">2021 — 2023</span>
+          </div>
+          <h2 class="timeline-role">Computer Systems Manager</h2>
+          <p class="timeline-company">Animal Systems Ltd</p>
+          <p class="timeline-desc">
+            Server design, repair, and sales for a small industrial server manufacturer.
+            Technical sales alongside hands-on infrastructure and logistics.
+          </p>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">2021 — 2023</span>
+          </div>
+          <h2 class="timeline-role">Technical Support Engineer</h2>
+          <p class="timeline-company">Terra Computer Ltd &nbsp;·&nbsp; Wortmann AG</p>
+          <p class="timeline-desc">
+            L2 IT support for the UK branch of Wortmann AG,
+            with direct liaison with engineering teams in Germany.
+          </p>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date">2020 — 2021</span>
+          </div>
+          <h2 class="timeline-role">Repair Technician</h2>
+          <p class="timeline-company">Click Tech Repair</p>
+          <p class="timeline-desc">
+            Front-of-house and technical work for a local repair shop —
+            diagnostics, repair, and a Python stock tool built from scratch.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="roadmap-block">
+        <p class="roadmap-label">Where I'm headed</p>
+        <ol class="roadmap">
+          <li>Azure Administrator <span class="cert">AZ-104</span></li>
+          <li>Terraform Associate</li>
+          <li>Linux Foundation Certified System Administrator</li>
+          <li class="milestone">Senior Cloud / Infrastructure Engineer</li>
+          <li>Certified Kubernetes Administrator</li>
+          <li>Azure Solutions Architect Expert</li>
+          <li class="milestone">Site Reliability Engineer</li>
+        </ol>
+      </div>
+
+    </section>
+
+    <!-- PERSONAL -->
+    <section class="section-personal" id="person">
+      <div class="personal-inner">
+
+        <h2 class="personal-title">Outside<br><em>the terminal</em></h2>
+
+        <div class="personal-body">
+          <p>
+            I'm drawn to things that work quietly and hold up under pressure —
+            in systems, in ideas, in people. That probably explains both the
+            career and the meditation habit.
+          </p>
+          <p>
+            Most of my reading sits somewhere between philosophy and fiction.
+            I find stories more useful than frameworks, most of the time.
+            I try to stay fit, think carefully, and not take myself too seriously.
+          </p>
+          <p class="aside">
+            My original career plan was to work in a petting zoo with farm animals.
+            I ended up in IT. The instinct to keep things calm and well-fed remains.
+          </p>
         </div>
+
+        <div class="interests">
+          <span>Fitness</span>
+          <span>Meditation</span>
+          <span>Philosophy</span>
+          <span>Stories</span>
+          <span>Farm animals</span>
+        </div>
+
       </div>
     </section>
 
-    <section id="career-history" class="view">
-        <di v class="view-header">
-            <h2>CAREER</h2>
-            <p class="subtitle">Previous Roles</p>
-        </div>
+    <footer class="site-footer">
+      <a href="https://www.linkedin.com/in/oliver-beresford/" target="_blank">LinkedIn</a>
+      <span class="sep">·</span>
+      <a href="index.html">Obford Ltd</a>
+    </footer>
 
-        <div class="grid-3-col">
-            <div class="col">
-            <p class="role-title">Computer Systems Manager @ Animal Systems Ltd</p>
-            <p class="role-date">2021–2023</p>
-            <p class="role-description">
-                Server design, repair, and sales for a small industrial server manufacturer.
-            </p>
-            <ul class="role-responsibilities">
-                <li>Server & Infrastructure Design</li>
-                <li>Technical Sales & Client Consultation</li>
-                <li>Financial Oversight & Invoicing</li>
-                <li>Logistics & Shipping Coordination</li>
-                <li>Customer & Technical Support</li>
-                <li>Stock & Inventory Management</li>
-            </ul>
-            </div>
+  </main>
 
-            <div class="col">
-            <p class="role-title">Technical Support Engineer @ Terra Computer Ltd</p>
-            <p class="role-date">2021–2023</p>
-            <p class="role-description">
-                L2 IT support for the UK branch and customer base of Wortmann AG.
-            </p>
-            <ul class="role-responsibilities">
-                <li>L2 End-User & Hardware Support</li>
-                <li>Ticketing System Management</li>
-                <li>In-House IT Support Operations</li>
-                <li>Direct Liaison with German Engineering Teams</li>
-                <li>Corporate & Event IT Support</li>
-                <li>Cloud Service Support</li>
-            </ul>
-            </div>
-
-            <div class="col">
-            <p class="role-title">Repair Technician @ Click Tech Repair</p>
-            <p class="role-date">2020–2021</p>
-            <p class="role-description">
-                Front-of-house and technical operations for a local technology repair business.
-            </p>
-            <ul class="role-responsibilities">
-                <li>Front-of-House Operations & Customer Service</li>
-                <li>Device Diagnostics & Repair</li>
-                <li>Hardware & Software Troubleshooting</li>
-                <li>Python-Based Stock Management Tool</li>
-                <li>SEO & Web Development Support</li>
-            </ul>
-            </div>
-        </div>
-    </section>
-
-  </main>  
-  <script src="script.js"></script>
+  <script src="about.js"></script>
 </body>
 </html>
