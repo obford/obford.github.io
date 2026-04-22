@@ -433,6 +433,13 @@ img { display: block; max-width: 100%; }
 /* ================================================
    CONTACT
    ================================================ */
+.contact-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
 .cta-link {
   display: inline-block;
   margin-top: 28px;
@@ -539,6 +546,7 @@ img { display: block; max-width: 100%; }
   }
 
   .cta-link { display: block; text-align: center; }
+  .contact-links { justify-content: center; }
   .location-note { text-align: center; }
 
   .site-nav { gap: 20px; }

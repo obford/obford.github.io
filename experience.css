@@ -1,0 +1,179 @@
+/* ================================================
+   CAREER.CSS — career timeline page
+   Extends styles.css with timeline-specific styles
+   ================================================ */
+
+/* ---- Timeline ---- */
+.career-timeline {
+  display: flex;
+  flex-direction: column;
+  max-width: 620px;
+  margin-bottom: 0;
+}
+
+.career-item {
+  padding: 36px 0 36px 28px;
+  border-left: 1px solid var(--rule);
+  position: relative;
+}
+
+.career-item::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 42px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rule-strong);
+  border: 2px solid var(--bg);
+  transition: background 0.3s;
+}
+
+.career-item.current {
+  border-left-color: var(--fg);
+}
+
+.career-item.current::before {
+  background: var(--fg);
+  border-color: var(--bg);
+}
+
+.career-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.career-date {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.career-tag {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 2px 8px;
+}
+
+.career-role {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+  color: var(--fg);
+  line-height: 1.2;
+}
+
+.career-company {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+.career-desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 14px;
+  max-width: 520px;
+}
+
+.career-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.career-list li {
+  font-size: 0.88rem;
+  color: var(--muted);
+  padding-left: 16px;
+  position: relative;
+}
+
+.career-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--rule-strong);
+  font-size: 0.8rem;
+}
+
+/* ---- Roadmap ---- */
+.pro-roadmap {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
+  counter-reset: roadmap;
+}
+
+.pro-roadmap li {
+  counter-increment: roadmap;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--muted);
+  padding: 14px 0 14px 44px;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pro-roadmap li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.pro-roadmap li::before {
+  content: counter(roadmap, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  opacity: 0.4;
+  top: 17px;
+}
+
+.pro-roadmap li.pro-milestone {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  text-transform: uppercase;
+}
+
+.pro-cert {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--rule-strong);
+  color: var(--muted);
+  padding: 1px 6px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 700px) {
+  .career-item { padding-left: 20px; }
+  .career-item::before { left: -4px; }
+  .pro-roadmap li { padding-left: 32px; }
+}

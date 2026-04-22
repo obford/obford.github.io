@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="about.css" />
 
@@ -25,8 +25,7 @@
   <nav class="top-nav">
     <a href="index.html" class="nav-back">← Obford Ltd</a>
     <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#person">Oliver</a>
+      <a href="experience.html">Experience</a>
     </div>
   </nav>
 
@@ -36,128 +35,239 @@
     <section class="hero" id="top">
       <div class="hero-inner">
         <p class="hero-eyebrow">Oliver Beresford</p>
-        <h1 class="hero-title">IT engineer.<br><em>Curious person.</em></h1>
-        <p class="hero-sub">UK &nbsp;·&nbsp; Contracted through Obford Ltd</p>
+        <h1 class="hero-title">Hi I'm Ollie.<br>
+          <em>Have a look around.</em>
+        </h1>
+        <p class="hero-nav-hint">body &nbsp;·&nbsp; mind &nbsp;·&nbsp; reading &nbsp;·&nbsp; writing &nbsp;·&nbsp; people</p>
+        <div class="scroll-hint" aria-hidden="true">↓</div>
       </div>
-      <div class="scroll-hint" aria-hidden="true">↓</div>
+      
     </section>
 
-    <!-- WORK -->
-    <section class="section-work" id="work">
-      <div class="section-label">Work</div>
+    <!-- I. BODY -->
+    <section class="canvas-section cream" id="body" data-section>
+      <div class="canvas-inner">
+        <span class="canvas-index">I</span>
+        <div class="canvas-content">
 
-      <div class="timeline">
-
-        <article class="timeline-item current">
-          <div class="timeline-meta">
-            <span class="timeline-date">2023 — Present</span>
-            <span class="timeline-tag">Current</span>
+          <div class="section-header">
+            <h2 class="canvas-heading">Body</h2>
+            <button class="section-toggle" aria-expanded="true" aria-controls="body-content">
+              <span class="toggle-label">hide</span>
+              <span class="toggle-icon"></span>
+            </button>
           </div>
-          <h2 class="timeline-role">Associate IT Infrastructure Engineer</h2>
-          <p class="timeline-company">Playground Games &nbsp;·&nbsp; Xbox Game Studio</p>
-          <p class="timeline-desc">
-            Sole IT engineer for a 500-person game studio. End-to-end responsibility
-            for infrastructure, endpoint management, provisioning, internal tooling,
-            and the operations that keep a large creative studio running.
-          </p>
-          <ul class="timeline-list">
-            <li>L2 end-user support & IT operations</li>
-            <li>Endpoint deployment & patch management</li>
-            <li>New starter provisioning & inductions</li>
-            <li>Asset & inventory management</li>
-            <li>Internal tooling & automation</li>
-          </ul>
-        </article>
 
-        <article class="timeline-item">
-          <div class="timeline-meta">
-            <span class="timeline-date">2021 — 2023</span>
+          <div class="section-collapsible" id="body-content">
+            <div class="scrapbook">
+
+              <div class="img-block img-tall float-left">
+                <div class="img-placeholder"></div>
+                <div class="caption caption-right">
+                  <svg class="arrow-svg" viewBox="0 0 60 40" fill="none">
+                    <path d="M4 20 Q20 4 52 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    <path d="M44 14 L52 20 L44 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                  <span class="caption-text">morning session</span>
+                </div>
+              </div>
+
+              <div class="img-block img-square float-right">
+                <div class="img-placeholder"></div>
+                <div class="caption caption-left">
+                  <svg class="arrow-svg arrow-flip" viewBox="0 0 60 40" fill="none">
+                    <path d="M56 20 Q40 4 8 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    <path d="M16 14 L8 20 L16 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                  <span class="caption-text">somewhere cold</span>
+                </div>
+              </div>
+
+              <div class="scrap-field">
+                <div class="scrap s1"><span class="scrap-hand">bodyweight over machines</span></div>
+                <div class="scrap s2"><span class="scrap-hand">flexibility is freedom</span></div>
+                <div class="scrap s3"><span class="scrap-hand">cardio as moving meditation</span></div>
+                <div class="scrap s4"><span class="scrap-hand">I like the leeway it gives me at the table</span></div>
+              </div>
+
+            </div>
           </div>
-          <h2 class="timeline-role">Computer Systems Manager</h2>
-          <p class="timeline-company">Animal Systems Ltd</p>
-          <p class="timeline-desc">
-            Server design, repair, and sales for a small industrial server manufacturer.
-            Technical sales alongside hands-on infrastructure and logistics.
-          </p>
-        </article>
 
-        <article class="timeline-item">
-          <div class="timeline-meta">
-            <span class="timeline-date">2021 — 2023</span>
-          </div>
-          <h2 class="timeline-role">Technical Support Engineer</h2>
-          <p class="timeline-company">Terra Computer Ltd &nbsp;·&nbsp; Wortmann AG</p>
-          <p class="timeline-desc">
-            L2 IT support for the UK branch of Wortmann AG,
-            with direct liaison with engineering teams in Germany.
-          </p>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-meta">
-            <span class="timeline-date">2020 — 2021</span>
-          </div>
-          <h2 class="timeline-role">Repair Technician</h2>
-          <p class="timeline-company">Click Tech Repair</p>
-          <p class="timeline-desc">
-            Front-of-house and technical work for a local repair shop —
-            diagnostics, repair, and a Python stock tool built from scratch.
-          </p>
-        </article>
-
+        </div>
       </div>
-
-      <div class="roadmap-block">
-        <p class="roadmap-label">Where I'm headed</p>
-        <ol class="roadmap">
-          <li>Azure Administrator <span class="cert">AZ-104</span></li>
-          <li>Terraform Associate</li>
-          <li>Linux Foundation Certified System Administrator</li>
-          <li class="milestone">Senior Cloud / Infrastructure Engineer</li>
-          <li>Certified Kubernetes Administrator</li>
-          <li>Azure Solutions Architect Expert</li>
-          <li class="milestone">Site Reliability Engineer</li>
-        </ol>
-      </div>
-
     </section>
 
-    <!-- PERSONAL -->
-    <section class="section-personal" id="person">
-      <div class="personal-inner">
+    <!-- II. MIND -->
+    <section class="canvas-section tobacco" id="mind" data-section>
+      <div class="canvas-inner">
+        <span class="canvas-index">II</span>
+        <div class="canvas-content">
 
-        <h2 class="personal-title">Outside<br><em>the terminal</em></h2>
+          <div class="section-header">
+            <h2 class="canvas-heading">Mind</h2>
+            <button class="section-toggle" aria-expanded="true" aria-controls="mind-content">
+              <span class="toggle-label">hide</span>
+              <span class="toggle-icon"></span>
+            </button>
+          </div>
 
-        <div class="personal-body">
-          <p>
-            I'm drawn to things that work quietly and hold up under pressure —
-            in systems, in ideas, in people. That probably explains both the
-            career and the meditation habit.
-          </p>
-          <p>
-            Most of my reading sits somewhere between philosophy and fiction.
-            I find stories more useful than frameworks, most of the time.
-            I try to stay fit, think carefully, and not take myself too seriously.
-          </p>
-          <p class="aside">
-            My original career plan was to work in a petting zoo with farm animals.
-            I ended up in IT. The instinct to keep things calm and well-fed remains.
-          </p>
+          <div class="section-collapsible" id="mind-content">
+            <div class="scrapbook">
+
+              <div class="img-block img-wide">
+                <div class="img-placeholder"></div>
+                <div class="caption caption-right">
+                  <svg class="arrow-svg" viewBox="0 0 60 40" fill="none">
+                    <path d="M4 20 Q20 4 52 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    <path d="M44 14 L52 20 L44 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                  <span class="caption-text">nowhere in particular</span>
+                </div>
+              </div>
+
+              <div class="scrap-field">
+                <div class="scrap s2"><span class="scrap-hand">Ram Dass — Be Here Now</span></div>
+                <div class="scrap s5"><span class="scrap-hand">doing nothing is something</span></div>
+                <div class="scrap s1"><span class="scrap-hand">Avatar the Last Airbender, genuinely</span></div>
+                <div class="scrap s3"><span class="scrap-hand">coming home to sit still became exciting</span></div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
 
-        <div class="interests">
-          <span>Fitness</span>
-          <span>Meditation</span>
-          <span>Philosophy</span>
-          <span>Stories</span>
-          <span>Farm animals</span>
+    <!-- III. READING -->
+    <section class="canvas-section cream" id="reading" data-section>
+      <div class="canvas-inner">
+        <span class="canvas-index">III</span>
+        <div class="canvas-content">
+
+          <div class="section-header">
+            <h2 class="canvas-heading">Reading</h2>
+            <button class="section-toggle" aria-expanded="true" aria-controls="reading-content">
+              <span class="toggle-label">hide</span>
+              <span class="toggle-icon"></span>
+            </button>
+          </div>
+
+          <div class="section-collapsible" id="reading-content">
+            <div class="scrapbook">
+
+              <div class="img-block img-square float-left">
+                <div class="img-placeholder"></div>
+                <div class="caption caption-right">
+                  <svg class="arrow-svg" viewBox="0 0 60 40" fill="none">
+                    <path d="M4 20 Q20 4 52 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    <path d="M44 14 L52 20 L44 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                  <span class="caption-text">currently reading</span>
+                </div>
+              </div>
+
+              <div class="scrap-field">
+                <div class="scrap s3"><span class="scrap-hand">Meditations — Marcus Aurelius</span></div>
+                <div class="scrap s1"><span class="scrap-hand">Zen Mind, Beginner's Mind</span></div>
+                <div class="scrap s4"><span class="scrap-hand">the obstacle is the way</span></div>
+                <div class="scrap s2"><span class="scrap-hand">stories over arguments</span></div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
+      </div>
+    </section>
 
+    <!-- IV. WRITING -->
+    <section class="canvas-section tobacco" id="writing" data-section>
+      <div class="canvas-inner">
+        <span class="canvas-index">IV</span>
+        <div class="canvas-content">
+
+          <div class="section-header">
+            <h2 class="canvas-heading">Writing</h2>
+            <button class="section-toggle" aria-expanded="true" aria-controls="writing-content">
+              <span class="toggle-label">hide</span>
+              <span class="toggle-icon"></span>
+            </button>
+          </div>
+
+          <div class="section-collapsible" id="writing-content">
+            <div class="scrapbook">
+
+              <div class="img-block img-wide">
+                <div class="img-placeholder img-lined"></div>
+                <div class="caption caption-left">
+                  <svg class="arrow-svg arrow-flip" viewBox="0 0 60 40" fill="none">
+                    <path d="M56 20 Q40 4 8 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                    <path d="M16 14 L8 20 L16 27" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                  <span class="caption-text">more to come here</span>
+                </div>
+              </div>
+
+              <div class="scrap-field">
+                <div class="scrap s5"><span class="scrap-hand">writing is how I find out what I think</span></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- V. PEOPLE -->
+    <section class="canvas-section yellow" id="people" data-section>
+      <div class="canvas-inner">
+        <span class="canvas-index">V</span>
+        <div class="canvas-content">
+
+          <div class="section-header">
+            <h2 class="canvas-heading">People</h2>
+            <button class="section-toggle" aria-expanded="true" aria-controls="people-content">
+              <span class="toggle-label">hide</span>
+              <span class="toggle-icon"></span>
+            </button>
+          </div>
+
+          <div class="section-collapsible" id="people-content">
+            <div class="scrapbook">
+
+              <div class="polaroid-row">
+                <div class="polaroid">
+                  <div class="img-placeholder"></div>
+                  <span class="polaroid-caption">—</span>
+                </div>
+                <div class="polaroid">
+                  <div class="img-placeholder"></div>
+                  <span class="polaroid-caption">—</span>
+                </div>
+                <div class="polaroid">
+                  <div class="img-placeholder"></div>
+                  <span class="polaroid-caption">—</span>
+                </div>
+              </div>
+
+              <div class="scrap-field">
+                <div class="scrap s1"><span class="scrap-hand">the reason for most of it</span></div>
+                <div class="scrap s3"><span class="scrap-hand">the petting zoo dream lives on</span></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
     <footer class="site-footer">
       <a href="https://www.linkedin.com/in/oliver-beresford/" target="_blank">LinkedIn</a>
+      <span class="sep">·</span>
+      <a href="experience.html">Experience</a>
       <span class="sep">·</span>
       <a href="index.html">Obford Ltd</a>
     </footer>
@@ -165,5 +275,15 @@
   </main>
 
   <script src="about.js"></script>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="roughen" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
 </body>
 </html>

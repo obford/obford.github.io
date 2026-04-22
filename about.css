@@ -1,7 +1,7 @@
 /* ================================================
    ABOUT.CSS — Oliver Beresford personal page
-   Palette: warm yellow, tobacco, cream, grain
-   Fonts: DM Serif Display + Crimson Text
+   Aesthetic: scrapbook, handwritten, cinematic
+   Fonts: DM Serif Display + Crimson Text + Caveat
    ================================================ */
 
 :root {
@@ -20,10 +20,11 @@
   --font-display: 'DM Serif Display', serif;
   --font-body:    'Crimson Text', serif;
   --font-mono:    'DM Mono', monospace;
+  --font-hand:    'Caveat', cursive;
 
-  --max-w: 780px;
-  --pad-x: clamp(24px, 6vw, 80px);
-  --pad-section: clamp(80px, 12vw, 130px);
+  --max-w: 1200px;
+  --pad-x: clamp(24px, 8vw, 200px);
+  --pad-section: clamp(72px, 12vw, 180px);
 }
 
 /* ---- Reset ---- */
@@ -42,13 +43,13 @@ body {
 }
 
 a {
-  color: var(--yellow);
+  color: var(--brown);
   text-decoration: none;
   transition: opacity 0.2s;
 }
-a:hover { opacity: 0.7; }
+a:hover { opacity: 0.65; }
 
-/* ---- Film grain overlay ---- */
+/* ---- Film grain ---- */
 .grain {
   position: fixed;
   inset: 0;
@@ -71,6 +72,13 @@ a:hover { opacity: 0.7; }
   padding: 20px var(--pad-x);
   background: transparent;
   transition: background 0.3s ease;
+}
+
+.top-nav.scrolled {
+  background: rgba(245, 200, 66, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(28, 18, 8, 0.1);
 }
 
 .nav-back {
@@ -106,58 +114,54 @@ a:hover { opacity: 0.7; }
   background: var(--hero-bg);
 }
 
-.top-nav.scrolled {
-  background: rgba(245, 200, 66, 0.96);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(28, 18, 8, 0.12);
-}
-
 .hero::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(28, 18, 8, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(28, 18, 8, 0.15), transparent);
 }
 
-.hero-inner { max-width: var(--max-w); }
+.hero-inner { max-width: 800px; margin: 0 auto; width: 100%; }
 
 .hero-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--brown);
-  margin: 0 0 24px;
+  margin: 0 0 20px;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 6rem);
-  line-height: 1.1;
-  margin: 0 0 28px;
+  font-size: clamp(3.5rem, 7vw, 8rem);
+  line-height: 1.0;
+  margin: 0 0 32px;
   color: var(--tobacco);
   font-weight: 400;
 }
 
 .hero-title em {
-  font-style: italic;
-  color: var(--brown);
+    font-style: italic;
+    color: var(--brown);
+    font-size: 0.65em;
+    line-height: 1.25;
 }
 
-.hero-sub {
+.hero-nav-hint {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
   color: var(--brown);
-  margin: 0;
+  opacity: 0.5;
+  margin: 24px 0 0;
 }
 
 .scroll-hint {
-  position: absolute;
-  bottom: 36px;
-  left: var(--pad-x);
+  display: block;
+  margin-top: 48px;
   font-family: var(--font-mono);
   font-size: 1.1rem;
   color: var(--brown);
@@ -169,288 +173,300 @@ a:hover { opacity: 0.7; }
   50%       { transform: translateY(6px); opacity: 1; }
 }
 
-/* ---- Work section ---- */
-.section-work {
-  background: var(--cream);
-  color: var(--ink);
-  padding: var(--pad-section) var(--pad-x);
-  position: relative;
-}
-
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--bark);
-  margin-bottom: 60px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--cream-dark);
-  max-width: var(--max-w);
-}
-
-/* ---- Timeline ---- */
-.timeline {
-  max-width: var(--max-w);
+/* ================================================
+   SECTION TOGGLE
+   ================================================ */
+.section-header {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 40px;
 }
 
-.timeline-item {
-  padding: 40px 0 40px 32px;
-  border-left: 1px solid var(--cream-dark);
-  position: relative;
-  transition: border-color 0.3s;
-}
+.section-header .canvas-heading { margin-bottom: 0; }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: 46px;
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--cream-dark);
-  border: 2px solid var(--cream);
-  transition: background 0.3s;
-}
-
-.timeline-item.current::before {
-  background: var(--yellow-deep);
-  border-color: var(--cream);
-}
-
-.timeline-item.current {
-  border-left-color: var(--yellow-deep);
-}
-
-.timeline-meta {
+.section-toggle {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.timeline-date {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  color: var(--bark);
-}
-
-.timeline-tag {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: var(--yellow);
-  color: var(--brown);
-  padding: 2px 8px;
-  border-radius: 2px;
-  font-weight: 500;
-}
-
-.timeline-role {
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 3vw, 1.7rem);
-  font-weight: 400;
-  margin: 0 0 4px;
-  color: var(--ink);
-  line-height: 1.2;
-}
-
-.timeline-company {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  color: var(--bark);
-  margin: 0 0 16px;
-}
-
-.timeline-desc {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #4A3520;
-  margin: 0 0 16px;
-  max-width: 580px;
-}
-
-.timeline-list {
-  list-style: none;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
   padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.timeline-list li {
-  font-size: 0.92rem;
-  color: var(--bark);
-  padding-left: 16px;
-  position: relative;
-}
-
-.timeline-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--yellow-deep);
-  font-size: 0.8rem;
-}
-
-/* ---- Roadmap ---- */
-.roadmap-block {
-  max-width: var(--max-w);
-  margin-top: 72px;
-  padding-top: 48px;
-  border-top: 1px solid var(--cream-dark);
-}
-
-.roadmap-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--bark);
-  margin: 0 0 28px;
-}
-
-.roadmap {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  counter-reset: roadmap;
-}
-
-.roadmap li {
-  counter-increment: roadmap;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: #5A3E20;
-  padding: 12px 0 12px 40px;
-  position: relative;
-  border-bottom: 1px solid var(--cream-dark);
-}
-
-.roadmap li::before {
-  content: counter(roadmap, decimal-leading-zero);
-  position: absolute;
-  left: 0;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--bark);
-  opacity: 0.5;
-  top: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+  flex-shrink: 0;
+}
+.section-toggle:hover { opacity: 0.9; }
+
+.canvas-section.cream   .section-toggle { color: var(--ink); }
+.canvas-section.tobacco .section-toggle { color: var(--cream); }
+.canvas-section.yellow  .section-toggle { color: var(--tobacco); }
+
+.toggle-icon {
+  display: block;
+  width: 14px; height: 14px;
+  position: relative;
+}
+.toggle-icon::before,
+.toggle-icon::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 1.5px;
+  background: currentColor;
+  transform: translateY(-50%);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.toggle-icon::after {
+  opacity: 0;
+  transform: translateY(-50%) rotate(90deg);
+}
+.section-toggle[aria-expanded="false"] .toggle-icon::after {
+  opacity: 1;
 }
 
-.roadmap li.milestone {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--brown);
-  font-style: italic;
-  background: var(--yellow-pale);
-  padding-left: 40px;
-  margin: 4px 0;
-  border-left: 3px solid var(--yellow-deep);
-  border-bottom: 1px solid var(--cream-dark);
+.section-collapsible {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.4s ease, opacity 0.35s ease;
+  opacity: 1;
+  overflow: hidden;
 }
-
-.roadmap li.milestone::before {
-  left: 10px;
+.section-collapsible.is-collapsed {
+  grid-template-rows: 0fr;
+  opacity: 0;
 }
+.section-collapsible > * { min-height: 0; overflow: hidden; }
 
-.cert {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  background: var(--cream-dark);
-  color: var(--bark);
-  padding: 1px 6px;
-  border-radius: 2px;
-  margin-left: 8px;
-  vertical-align: middle;
-  letter-spacing: 0.05em;
-}
-
-/* ---- Personal section ---- */
-.section-personal {
-  background: var(--tobacco);
-  color: var(--cream);
+/* ================================================
+   CANVAS SECTIONS
+   ================================================ */
+.canvas-section {
   padding: var(--pad-section) var(--pad-x);
-  position: relative;
   overflow: hidden;
 }
 
-.section-personal::before {
-  content: '';
-  position: absolute;
-  top: -120px; right: -80px;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: rgba(245, 200, 66, 0.04);
-  pointer-events: none;
-}
+.canvas-section.cream   { background: var(--cream);   color: var(--ink); }
+.canvas-section.tobacco { background: var(--tobacco); color: var(--cream); }
+.canvas-section.yellow  { background: var(--yellow);  color: var(--tobacco); }
 
-.personal-inner {
+.canvas-inner {
   max-width: var(--max-w);
-  position: relative;
-  z-index: 1;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: clamp(20px, 4vw, 80px);
+  align-items: flex-start;
 }
 
-.personal-title {
+.canvas-index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  opacity: 0.22;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.canvas-section.cream   .canvas-index { color: var(--ink); }
+.canvas-section.tobacco .canvas-index { color: var(--cream); }
+.canvas-section.yellow  .canvas-index { color: var(--tobacco); }
+
+.canvas-content { flex: 1; }
+
+/* ---- Section headings ---- */
+.canvas-heading {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-size: clamp(2rem, 4vw, 4.5rem);
   font-weight: 400;
   line-height: 1.05;
-  margin: 0 0 52px;
-  color: var(--cream);
+  margin: 0 0 40px;
 }
 
-.personal-title em {
-  font-style: italic;
-  color: var(--yellow);
+.canvas-section.cream   .canvas-heading { color: var(--ink); }
+.canvas-section.tobacco .canvas-heading { color: var(--cream); }
+.canvas-section.yellow  .canvas-heading { color: var(--tobacco); }
+
+/* ================================================
+   SCRAPBOOK LAYOUT
+   ================================================ */
+.scrapbook {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
 
-.personal-body {
-  max-width: 580px;
+/* ---- Image blocks ---- */
+.img-block { position: relative; }
+
+.img-placeholder {
+  background: rgba(128, 96, 48, 0.12);
+  border: 1.5px dashed rgba(128, 96, 48, 0.25);
+  display: block;
 }
 
-.personal-body p {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  line-height: 1.85;
-  color: var(--cream-dark);
-  margin: 0 0 24px;
+.canvas-section.tobacco .img-placeholder {
+  background: rgba(250, 243, 224, 0.06);
+  border-color: rgba(250, 243, 224, 0.15);
 }
 
-.personal-body .aside {
-  font-style: italic;
-  color: var(--muted);
-  font-size: 1rem;
-  border-left: 2px solid var(--yellow-deep);
-  padding-left: 20px;
-  margin-top: 32px;
+.canvas-section.yellow .img-placeholder {
+  background: rgba(58, 38, 8, 0.08);
+  border-color: rgba(58, 38, 8, 0.2);
 }
 
-.interests {
+/* Sizing variants */
+.img-tall  .img-placeholder { width: clamp(180px, 18vw, 320px); height: clamp(240px, 24vw, 420px); }
+.img-square .img-placeholder { width: clamp(180px, 18vw, 320px); height: clamp(180px, 18vw, 320px); }
+.img-wide  .img-placeholder { width: 100%; max-width: 760px; height: clamp(180px, 16vw, 300px); }
+
+/* Lined placeholder for writing section */
+.img-lined {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 28px,
+    rgba(128, 96, 48, 0.15) 28px,
+    rgba(128, 96, 48, 0.15) 29px
+  );
+}
+
+.canvas-section.tobacco .img-lined {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 28px,
+    rgba(250, 243, 224, 0.1) 28px,
+    rgba(250, 243, 224, 0.1) 29px
+  );
+}
+
+/* Float layout for tall/square images */
+.float-left  .img-placeholder { float: left; margin: 0 28px 12px 0; }
+.float-right .img-placeholder { float: right; margin: 0 0 12px 28px; }
+.img-block::after { content: ''; display: table; clear: both; }
+
+/* ---- Arrow captions ---- */
+.caption {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.caption-right { flex-direction: row; }
+.caption-left  { flex-direction: row-reverse; }
+
+.arrow-svg {
+  width: 52px;
+  height: 32px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.canvas-section.cream   .arrow-svg { color: var(--bark); }
+.canvas-section.tobacco .arrow-svg { color: var(--yellow-deep); }
+.canvas-section.yellow  .arrow-svg { color: var(--brown); }
+
+.caption-text {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.canvas-section.cream   .caption-text { color: var(--bark); }
+.canvas-section.tobacco .caption-text { color: var(--yellow); }
+.canvas-section.yellow  .caption-text { color: var(--brown); }
+
+/* ================================================
+   ROUGH HAND-DRAWN CIRCLES
+   Each scrap gets its own imperfect border-radius
+   via SVG filter + individual clip path on ::before
+   ================================================ */
+.scrap-field {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 48px;
+  gap: clamp(12px, 1.5vw, 24px) clamp(16px, 2vw, 32px);
+  align-items: center;
+  padding: 8px 0;
+  filter: url(#roughen);
 }
 
-.interests span {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 1px solid rgba(245, 200, 66, 0.3);
-  color: var(--yellow);
-  padding: 6px 14px;
-  border-radius: 2px;
+.scrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 1vw, 14px) clamp(18px, 2vw, 32px);
+  border: 2px solid;
+  position: relative;
+  transition: filter 0.2s ease;
+}
+
+/* Each circle gets a different border-radius to feel hand-drawn */
+.s1 { border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; transform: rotate(-2.4deg); }
+.s2 { border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; transform: rotate(1.8deg);  }
+.s3 { border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%; transform: rotate(-1.2deg); }
+.s4 { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; transform: rotate(2.8deg);  }
+.s5 { border-radius: 50% 50% 42% 58% / 58% 42% 52% 48%; transform: rotate(-0.8deg); }
+
+.canvas-section.cream   .scrap { border-color: var(--bark); }
+.canvas-section.tobacco .scrap { border-color: var(--yellow-deep); }
+.canvas-section.yellow  .scrap { border-color: var(--brown); }
+
+.scrap-hand {
+  font-family: var(--font-hand);
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.canvas-section.cream   .scrap-hand { color: var(--bark); }
+.canvas-section.tobacco .scrap-hand { color: var(--yellow); }
+.canvas-section.yellow  .scrap-hand { color: var(--brown); }
+
+/* SVG filter for roughening - injected via CSS */
+body::before {
+  content: '';
+  position: absolute;
+  width: 0; height: 0;
+}
+
+/* ---- Polaroid row ---- */
+.polaroid-row {
+  display: flex;
+  gap: clamp(16px, 2vw, 36px);
+  flex-wrap: wrap;
+}
+
+.polaroid {
+  background: var(--cream);
+  padding: clamp(8px, 1vw, 14px) clamp(8px, 1vw, 14px) clamp(28px, 3vw, 48px);
+  box-shadow: 2px 3px 12px rgba(28, 18, 8, 0.15);
+  transform-origin: center bottom;
+}
+
+.polaroid:nth-child(1) { transform: rotate(-2.5deg); }
+.polaroid:nth-child(2) { transform: rotate(1.2deg);  }
+.polaroid:nth-child(3) { transform: rotate(-1.8deg); }
+
+.polaroid .img-placeholder {
+  width: clamp(140px, 14vw, 240px);
+  height: clamp(140px, 14vw, 240px);
+  border: none;
+}
+
+.polaroid-caption {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: var(--ink);
+  opacity: 0.5;
 }
 
 /* ---- Footer ---- */
@@ -474,7 +490,7 @@ a:hover { opacity: 0.7; }
 /* ---- Scroll reveal ---- */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .reveal.visible {
@@ -484,9 +500,14 @@ a:hover { opacity: 0.7; }
 
 /* ---- Mobile ---- */
 @media (max-width: 640px) {
-  .timeline-item { padding-left: 20px; }
-  .hero-title { font-size: clamp(2.4rem, 11vw, 3.5rem); }
-  .personal-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
-  .roadmap li { padding-left: 32px; }
-  .roadmap li::before { font-size: 0.6rem; }
+  .img-tall  .img-placeholder,
+  .img-square .img-placeholder { width: 150px !important; height: 150px !important; }
+  .float-left  .img-placeholder { margin-right: 16px; }
+  .float-right .img-placeholder { margin-left: 16px; }
+  .scrap-hand { white-space: normal; text-align: center; font-size: 0.9rem; }
+  .scrap { padding: 7px 12px; }
+  .polaroid .img-placeholder { width: 110px !important; height: 110px !important; }
+  .polaroid-row { gap: 10px; }
+  .canvas-heading { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .hero-title { font-size: clamp(2.8rem, 11vw, 4rem); }
 }

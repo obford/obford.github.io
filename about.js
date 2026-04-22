@@ -8,9 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    /* Scroll reveal */
+    /* -------------------------------------------------------
+       SECTION TOGGLE
+       Wires up every .section-toggle button on the page.
+       Works for any section — no hardcoded IDs.
+    ------------------------------------------------------- */
+    document.querySelectorAll('.section-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            const targetId   = btn.getAttribute('aria-controls');
+            const content    = document.getElementById(targetId);
+            const label      = btn.querySelector('.toggle-label');
+
+            if (!content) return;
+
+            if (isExpanded) {
+                btn.setAttribute('aria-expanded', 'false');
+                content.classList.add('is-collapsed');
+                if (label) label.textContent = 'show';
+            } else {
+                btn.setAttribute('aria-expanded', 'true');
+                content.classList.remove('is-collapsed');
+                if (label) label.textContent = 'hide';
+            }
+        });
+    });
+
+    /* -------------------------------------------------------
+       SCROLL REVEAL
+    ------------------------------------------------------- */
     const revealTargets = document.querySelectorAll(
-        '.timeline-item, .roadmap-block, .personal-body, .personal-title, .interests, .hero-inner'
+        '.hero-inner, .canvas-inner'
     );
 
     if (revealTargets.length > 0) {
@@ -19,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.transitionDelay = `${i * 0.06}s`;
+                    entry.target.style.transitionDelay = `${i * 0.04}s`;
                     entry.target.classList.add('visible');
                     obs.unobserve(entry.target);
                 }
