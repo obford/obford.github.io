@@ -1,5 +1,5 @@
 /* ================================================
-   STYLES.CSS — Obford Ltd professional site
+   STYLES.CSS - Obford Ltd professional site
    Aesthetic: editorial, asymmetric, typographic
    Fonts: Quattrocento (display) + Lora (body)
    ================================================ */
@@ -19,7 +19,7 @@
   --pad-x:       clamp(28px, 7vw, 96px);
   --pad-section: clamp(96px, 14vw, 160px);
 
-  /* Left column width — holds index number + rotated label */
+  /* Left column width - holds index number + rotated label */
   --col-left:    80px;
   --col-gap:     clamp(32px, 5vw, 72px);
 }

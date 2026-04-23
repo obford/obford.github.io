@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================
-       HEADER — border appears on scroll
+       HEADER - border appears on scroll
        ========================================================== */
     const header = document.querySelector('.site-header');
     if (header) {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================
-       SMOOTH SCROLL — scroll cue button
+       SMOOTH SCROLL - scroll cue button
        ========================================================== */
     document.querySelectorAll('[data-scroll]').forEach(el => {
         el.addEventListener('click', () => {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================
-       EASTER EGG — double-click or long-press on OBFORD heading
+       EASTER EGG - double-click or long-press on OBFORD heading
        ========================================================== */
     const trigger = document.getElementById('easter-egg-trigger');
 

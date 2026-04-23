@@ -1,5 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    /* -------------------------------------------------------
+       PHOTO CORNERS
+       Injects four corner spans into every .img-block so CSS
+       can render scrapbook-style folded corner tabs.
+    ------------------------------------------------------- */
+    document.querySelectorAll('.img-block').forEach(block => {
+        const img = block.querySelector('img');
+        if (!img) return;
+
+        // Wrap the img so tape strips can be absolutely positioned
+        const wrap = document.createElement('div');
+        wrap.className = 'img-wrap';
+        img.parentNode.insertBefore(wrap, img);
+        wrap.appendChild(img);
+
+        // Two tape strips: top-left corner and bottom-right corner
+        ['tape-tl', 'tape-br'].forEach(pos => {
+            const tape = document.createElement('span');
+            tape.className = `img-tape ${pos}`;
+            wrap.appendChild(tape);
+        });
+    });
+
+
     /* Nav background on scroll */
     const nav = document.querySelector('.top-nav');
     if (nav) {
@@ -35,6 +59,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* -------------------------------------------------------
+       POLAROID TAPE
+       Injects two tape strips into every .polaroid
+    ------------------------------------------------------- */
+    document.querySelectorAll('.polaroid').forEach(polaroid => {
+        ['tape-tl', 'tape-br'].forEach(pos => {
+            const tape = document.createElement('span');
+            tape.className = `polaroid-tape ${pos}`;
+            polaroid.appendChild(tape);
+        });
+    });
+
+    /* -------------------------------------------------------
        SCROLL REVEAL
     ------------------------------------------------------- */
     const revealTargets = document.querySelectorAll(
@@ -48,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
                     entry.target.style.transitionDelay = `${i * 0.04}s`;
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('is-visible');
                     obs.unobserve(entry.target);
                 }
             });

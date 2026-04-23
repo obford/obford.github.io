@@ -249,7 +249,6 @@ a:hover { opacity: 0.65; }
    ================================================ */
 .canvas-section {
   padding: var(--pad-section) var(--pad-x);
-  overflow: hidden;
 }
 
 .canvas-section.cream   { background: var(--cream);   color: var(--ink); }
@@ -278,7 +277,16 @@ a:hover { opacity: 0.65; }
 .canvas-section.tobacco .canvas-index { color: var(--cream); }
 .canvas-section.yellow  .canvas-index { color: var(--tobacco); }
 
-.canvas-content { flex: 1; }
+.canvas-content {
+  flex: 1;
+  border: 1px solid;
+  padding: clamp(24px, 3vw, 48px);
+  overflow: visible;
+}
+
+.canvas-section.cream   .canvas-content { border-color: var(--cream-dark); }
+.canvas-section.tobacco .canvas-content { border-color: rgba(250, 243, 224, 0.12); }
+.canvas-section.yellow  .canvas-content { border-color: var(--yellow-deep); }
 
 /* ---- Section headings ---- */
 .canvas-heading {
@@ -293,6 +301,17 @@ a:hover { opacity: 0.65; }
 .canvas-section.tobacco .canvas-heading { color: var(--cream); }
 .canvas-section.yellow  .canvas-heading { color: var(--tobacco); }
 
+/* ---- Section prose ---- */
+.section-prose {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.8;
+  width: 100%;
+  margin: 0 0 24px;
+  opacity: 0.75;
+  text-align: center;
+}
+
 /* ================================================
    SCRAPBOOK LAYOUT
    ================================================ */
@@ -300,70 +319,119 @@ a:hover { opacity: 0.65; }
   display: flex;
   flex-direction: column;
   gap: 36px;
+  overflow: visible;
 }
 
-/* ---- Image blocks ---- */
-.img-block { position: relative; }
+/* ---- Image block ---- */
+/*
+  One class: .img-block
+  Image is always 33% of the content width.
+  Caption sits beside it — to the right with .float-left,
+  or to the left with .float-right.
+*/
+.img-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-.img-placeholder {
-  background: rgba(128, 96, 48, 0.12);
-  border: 1.5px dashed rgba(128, 96, 48, 0.25);
+.img-block.float-left  { flex-direction: row; }
+.img-block.float-right { flex-direction: row-reverse; }
+
+/* ---- Photo tape ---- */
+/*
+  Two translucent tape strips, one at the top-left corner of the image,
+  one at the bottom-right. Each is a short rotated rectangle with a
+  semi-transparent background and subtle grain to mimic sticky tape.
+*/
+.img-wrap {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 33%;
+  margin: 18px 18px 18px 18px;
+  /* Slight drop shadow to lift photo off the page */
+  filter: drop-shadow(2px 4px 8px rgba(28, 18, 8, 0.28));
+}
+
+/* Vary the tilt per image block to feel hand-placed */
+.img-block:nth-child(1) .img-wrap { transform: rotate(-1.8deg); }
+.img-block:nth-child(2) .img-wrap { transform: rotate(1.2deg);  }
+.img-block:nth-child(3) .img-wrap { transform: rotate(-0.7deg); }
+.img-block:nth-child(4) .img-wrap { transform: rotate(2.1deg);  }
+.img-block:nth-child(5) .img-wrap { transform: rotate(-1.4deg); }
+.img-block:nth-child(6) .img-wrap { transform: rotate(0.9deg);  }
+
+/* Rough edge: SVG-based border-image that breaks the clean rect */
+.img-wrap img {
   display: block;
+  width: 100% !important;
+  height: auto;
+  /* Tiny inset shadow on the image itself for a slight border feel */
+  box-shadow: inset 0 0 0 1px rgba(28, 18, 8, 0.08);
 }
 
-.canvas-section.tobacco .img-placeholder {
-  background: rgba(250, 243, 224, 0.06);
-  border-color: rgba(250, 243, 224, 0.15);
-}
+.img-block.portrait  .img-wrap { width: 25%; }
+.img-block.landscape .img-wrap { width: 50%; }
 
-.canvas-section.yellow .img-placeholder {
-  background: rgba(58, 38, 8, 0.08);
-  border-color: rgba(58, 38, 8, 0.2);
-}
+/* img sizing handled inside .img-wrap above */
 
-/* Sizing variants */
-.img-tall  .img-placeholder { width: clamp(180px, 18vw, 320px); height: clamp(240px, 24vw, 420px); }
-.img-square .img-placeholder { width: clamp(180px, 18vw, 320px); height: clamp(180px, 18vw, 320px); }
-.img-wide  .img-placeholder { width: 100%; max-width: 760px; height: clamp(180px, 16vw, 300px); }
-
-/* Lined placeholder for writing section */
-.img-lined {
+.img-tape {
+  position: absolute;
+  width: 88px;
+  height: 24px;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(210, 200, 160, 0.62);
+  border-left:  1px solid rgba(180, 170, 130, 0.4);
+  border-right: 1px solid rgba(180, 170, 130, 0.4);
   background-image: repeating-linear-gradient(
+    90deg,
     transparent,
-    transparent 28px,
-    rgba(128, 96, 48, 0.15) 28px,
-    rgba(128, 96, 48, 0.15) 29px
+    transparent 3px,
+    rgba(255, 255, 255, 0.1) 3px,
+    rgba(255, 255, 255, 0.1) 4px
   );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 }
 
-.canvas-section.tobacco .img-lined {
-  background-image: repeating-linear-gradient(
-    transparent,
-    transparent 28px,
-    rgba(250, 243, 224, 0.1) 28px,
-    rgba(250, 243, 224, 0.1) 29px
-  );
+/* Top-left */
+.img-tape.tape-tl {
+  top: 0px;
+  left: -20px;
+  transform: rotate(-38deg);
+  transform-origin: center center;
 }
 
-/* Float layout for tall/square images */
-.float-left  .img-placeholder { float: left; margin: 0 28px 12px 0; }
-.float-right .img-placeholder { float: right; margin: 0 0 12px 28px; }
-.img-block::after { content: ''; display: table; clear: both; }
+/* Bottom-right */
+.img-tape.tape-br {
+  bottom: 0px;
+  right: -20px;
+  transform: rotate(-38deg);
+  transform-origin: center center;
+}
 
-/* ---- Arrow captions ---- */
+/* Slightly warmer tint on dark (tobacco) sections */
+.canvas-section.tobacco .img-tape {
+  background: rgba(200, 185, 140, 0.55);
+}
+
+/* ---- Arrow captions ---- *//* ---- Arrow captions ---- */
 .caption {
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  margin-top: 8px;
+  padding-top: 4px;
+  flex: 1;
 }
 
 .caption-right { flex-direction: row; }
 .caption-left  { flex-direction: row-reverse; }
 
 .arrow-svg {
-  width: 52px;
-  height: 32px;
+  width: 72px;
+  height: 44px;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -374,7 +442,7 @@ a:hover { opacity: 0.65; }
 
 .caption-text {
   font-family: var(--font-hand);
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1.3;
 }
 
@@ -384,14 +452,13 @@ a:hover { opacity: 0.65; }
 
 /* ================================================
    ROUGH HAND-DRAWN CIRCLES
-   Each scrap gets its own imperfect border-radius
-   via SVG filter + individual clip path on ::before
    ================================================ */
 .scrap-field {
   display: flex;
   flex-wrap: wrap;
   gap: clamp(12px, 1.5vw, 24px) clamp(16px, 2vw, 32px);
   align-items: center;
+  justify-content: center;
   padding: 8px 0;
   filter: url(#roughen);
 }
@@ -406,7 +473,6 @@ a:hover { opacity: 0.65; }
   transition: filter 0.2s ease;
 }
 
-/* Each circle gets a different border-radius to feel hand-drawn */
 .s1 { border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; transform: rotate(-2.4deg); }
 .s2 { border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; transform: rotate(1.8deg);  }
 .s3 { border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%; transform: rotate(-1.2deg); }
@@ -428,34 +494,88 @@ a:hover { opacity: 0.65; }
 .canvas-section.tobacco .scrap-hand { color: var(--yellow); }
 .canvas-section.yellow  .scrap-hand { color: var(--brown); }
 
-/* SVG filter for roughening - injected via CSS */
 body::before {
   content: '';
   position: absolute;
   width: 0; height: 0;
 }
 
+/* ---- Book grid ---- */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+  width: 100%;
+  margin-top: 8px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.book img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  filter: drop-shadow(2px 4px 10px rgba(28, 18, 8, 0.45));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.book img:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(2px 8px 16px rgba(28, 18, 8, 0.55));
+}
+
+.book-title {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--yellow);
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .book-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ---- Polaroid row ---- */
 .polaroid-row {
   display: flex;
-  gap: clamp(16px, 2vw, 36px);
+  gap: clamp(24px, 3vw, 48px);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .polaroid {
   background: var(--cream);
-  padding: clamp(8px, 1vw, 14px) clamp(8px, 1vw, 14px) clamp(28px, 3vw, 48px);
-  box-shadow: 2px 3px 12px rgba(28, 18, 8, 0.15);
-  transform-origin: center bottom;
+  padding: clamp(8px, 1vw, 14px) clamp(8px, 1vw, 14px) clamp(32px, 4vw, 52px);
+  filter: drop-shadow(2px 5px 10px rgba(28, 18, 8, 0.3));
+  width: 28%;
+  flex-shrink: 1;
+  position: relative;
+  /* Vertical margin only — horizontal spacing handled by gap on polaroid-row */
+  margin: 20px 0;
 }
 
-.polaroid:nth-child(1) { transform: rotate(-2.5deg); }
-.polaroid:nth-child(2) { transform: rotate(1.2deg);  }
-.polaroid:nth-child(3) { transform: rotate(-1.8deg); }
+.polaroid:nth-child(1) { transform: rotate(-1.2deg); }
+.polaroid:nth-child(2) { transform: rotate(0.6deg);  }
+.polaroid:nth-child(3) { transform: rotate(-0.8deg); }
+
+.polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
 
 .polaroid .img-placeholder {
-  width: clamp(140px, 14vw, 240px);
-  height: clamp(140px, 14vw, 240px);
+  width: 100%;
+  aspect-ratio: 1 / 1;
   border: none;
 }
 
@@ -467,6 +587,39 @@ body::before {
   font-size: 1rem;
   color: var(--ink);
   opacity: 0.5;
+}
+
+/* ---- Polaroid tape ---- */
+.polaroid-tape {
+  position: absolute;
+  width: 88px;
+  height: 24px;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(210, 200, 160, 0.62);
+  border-left:  1px solid rgba(180, 170, 130, 0.4);
+  border-right: 1px solid rgba(180, 170, 130, 0.4);
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.1) 3px,
+    rgba(255, 255, 255, 0.1) 4px
+  );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.polaroid-tape.tape-tl {
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.polaroid-tape.tape-br {
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* ---- Footer ---- */
@@ -493,21 +646,62 @@ body::before {
   transform: translateY(16px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.reveal.visible {
+.reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 
 /* ---- Mobile ---- */
 @media (max-width: 640px) {
-  .img-tall  .img-placeholder,
-  .img-square .img-placeholder { width: 150px !important; height: 150px !important; }
-  .float-left  .img-placeholder { margin-right: 16px; }
-  .float-right .img-placeholder { margin-left: 16px; }
+
+  /* Scrapbook images: stack vertically, image full-width, caption below, no arrows or tape */
+  .img-block,
+  .img-block.float-left,
+  .img-block.float-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .img-wrap {
+    width: 100% !important;
+    margin: 0 0 12px 0;
+  }
+
+  /* Hide tape and arrows on mobile — tape is comically large at small sizes */
+  .img-tape { display: none; }
+  .arrow-svg { display: none; }
+
+  /* Caption sits below as plain centred text — arrow hidden so reset flex */
+  .caption {
+    display: block;
+    padding-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .caption-text {
+    font-size: 1.1rem;
+    display: block;
+  }
+
+  /* Polaroids: single column, constrained so margin doesn't cause overflow */
+  .polaroid-row {
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .polaroid {
+    width: calc(100% - 40px); /* 100% minus the 20px margin on each side */
+    max-width: 320px;
+    margin: 12px auto;
+  }
+
+  /* Scraps */
   .scrap-hand { white-space: normal; text-align: center; font-size: 0.9rem; }
   .scrap { padding: 7px 12px; }
-  .polaroid .img-placeholder { width: 110px !important; height: 110px !important; }
-  .polaroid-row { gap: 10px; }
+
+  /* Typography */
   .canvas-heading { font-size: clamp(1.8rem, 8vw, 2.4rem); }
   .hero-title { font-size: clamp(2.8rem, 11vw, 4rem); }
 }

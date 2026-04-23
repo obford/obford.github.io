@@ -1,5 +1,5 @@
 /* ================================================
-   CAREER.CSS — career timeline page
+   CAREER.CSS - career timeline page
    Extends styles.css with timeline-specific styles
    ================================================ */
 
@@ -107,7 +107,7 @@
 }
 
 .career-list li::before {
-  content: '—';
+  content: '-';
   position: absolute;
   left: 0;
   color: var(--rule-strong);
