@@ -176,4 +176,5 @@
   .career-item { padding-left: 20px; }
   .career-item::before { left: -4px; }
   .pro-roadmap li { padding-left: 32px; }
+  .hero-heading { font-size: clamp(1.2rem, 14vw, 7rem); }
 }
