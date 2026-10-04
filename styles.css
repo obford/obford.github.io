@@ -3,6 +3,15 @@
    Pine #101A16 · Green #4E9E74 · Paper #F0F2ED
    ============================================================ */
 
+/* ============ FONTS ============ */
+/* Self-hosted, latin subset. Both fonts are SIL OFL 1.1: licences in assets/fonts. */
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/instrument-sans-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/instrument-sans-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/instrument-sans-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/instrument-sans-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2')}
+
 /* ============ PALETTES ============ */
 
 :root{
@@ -11,6 +20,8 @@
   --ink:#101A16; --ink-mute:#54615A;
   --cream:#F0F2ED; --cream-mute:#849187;
   --accent:#4E9E74; --accent-ink:#0B1610;
+  --accent-text:#387153; /* the green, darkened to pass contrast as small text on paper */
+  --line-strong:#5F6E64;
 
   --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;
@@ -60,6 +71,8 @@ a{color:inherit}
 .wash{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
   height:150%;width:calc(150% * var(--ratio));opacity:.05;pointer-events:none;
+  /* fades in from the top, so it doesn't show a hard edge under the bear band */
+  -webkit-mask-image:linear-gradient(180deg,transparent 18%,#000 42%);mask-image:linear-gradient(180deg,transparent 18%,#000 42%);
 }
 
 /* ============ NAV ============ */
@@ -76,8 +89,9 @@ a{color:inherit}
 .hero{padding:clamp(64px,10vw,132px) 0 clamp(76px,12vw,150px);background:var(--bg);position:relative;overflow:hidden}
 .hero .wrap{position:relative;z-index:2}
 .eyebrow{font-family:var(--mono);font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
+.hero .eyebrow,.band.light .eyebrow{color:var(--accent-text)}
 h1{font-weight:600;font-size:clamp(2.5rem,7vw,5rem);line-height:.98;letter-spacing:-.042em;margin:0;max-width:13ch}
-.hero p{font-size:clamp(1.04rem,1.9vw,1.2rem);color:var(--ink-mute);margin:26px 0 0;max-width:44ch}
+.hero p:not(.eyebrow){font-size:clamp(1.04rem,1.9vw,1.2rem);color:var(--ink-mute);margin:26px 0 0;max-width:44ch}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 .btn{text-decoration:none;font-weight:600;font-size:.94rem;padding:14px 26px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
 .btn.solid{background:var(--ink);color:var(--bg)}
@@ -86,7 +100,7 @@ h1{font-weight:600;font-size:clamp(2.5rem,7vw,5rem);line-height:.98;letter-spaci
 .btn.ghost:hover{border-color:var(--ink)}
 .btn.accent{background:var(--accent);color:var(--accent-ink)}
 .btn.accent:hover{background:var(--cream);color:var(--dark)}
-.btn.outline{border:1.5px solid var(--dark3);color:var(--cream)}
+.btn.outline{border:1.5px solid var(--line-strong);color:var(--cream)}
 .btn.outline:hover{border-color:var(--cream)}
 
 /* ============ HEADS ============ */
@@ -95,8 +109,9 @@ h2{font-weight:600;font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.02;letter-
 
 /* ============ SERVICES ============ */
 .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(12px,2vw,20px)}
-.card{background:var(--dark2);border:1px solid var(--dark3);border-radius:18px;padding:26px 24px 28px;transition:transform .25s cubic-bezier(.2,.8,.3,1),border-color .25s}
-.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card{background:var(--dark2);border:1px solid var(--dark3);border-radius:18px;padding:26px 24px 28px}
+.grid4 .card{transition:transform var(--wd,0s) var(--we,ease) var(--wl,0ms),opacity var(--wod,0s) var(--wes,ease) var(--wl,0ms),filter var(--wbd,0s) var(--wes,ease) var(--wl,0ms),translate .25s cubic-bezier(.2,.8,.3,1),border-color .25s}
+.card:hover{translate:0 -4px;border-color:var(--accent)}
 .card .n{font-family:var(--mono);font-size:.72rem;color:var(--accent);display:block;margin-bottom:16px;letter-spacing:.06em}
 .card h3{font-weight:600;font-size:1.14rem;margin:0 0 8px;letter-spacing:-.016em}
 .card p{margin:0;color:var(--cream-mute);font-size:.96rem}
@@ -104,18 +119,18 @@ h2{font-weight:600;font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.02;letter-
 /* ============ HISTORY ============ */
 .rows{border-top:1px solid var(--bg2)}
 .row{display:grid;grid-template-columns:150px 1fr;gap:clamp(14px,3vw,40px);padding:24px 0;border-bottom:1px solid var(--bg2)}
-.row .yr{font-family:var(--mono);font-size:.82rem;color:var(--accent);padding-top:3px}
+.row .yr{font-family:var(--mono);font-size:.82rem;color:var(--accent-text);padding-top:3px}
 .row h3{font-weight:600;font-size:1.1rem;margin:0 0 4px;letter-spacing:-.016em}
 .row .who{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);margin:0 0 8px}
 .row p{margin:0;color:var(--ink-mute);font-size:.96rem;max-width:62ch}
 
 /* ============ CREST ============ */
 .crest{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:center;position:relative;z-index:2}
-.blazon{font-family:var(--mono);font-size:.86rem;color:var(--cream);border-left:3px solid var(--accent);padding:4px 0 4px 16px;margin:0 0 22px;line-height:1.7}
-.crest p{margin:0 0 15px;color:var(--cream-mute);font-size:1rem;max-width:54ch}
+.crest p:not(.eyebrow){margin:0 0 15px;color:var(--cream-mute);font-size:1rem;max-width:54ch}
 .crest p:last-child{margin-bottom:0}
 
 /* ============ CERTIFICATION ============ */
+/* Not on the page at the moment. Kept for when AZ-104 is passed. */
 .certs{display:grid;gap:10px}
 .cert{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--bg2);border-radius:14px;padding:17px 20px}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--ink-mute);opacity:.3}
@@ -123,7 +138,23 @@ h2{font-weight:600;font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.02;letter-
 .cert h3{font-weight:600;font-size:1.02rem;margin:0;letter-spacing:-.014em}
 .cert .code{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);margin:3px 0 0}
 .cert .st{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);white-space:nowrap}
-.cert .st.now{color:var(--accent);font-weight:500}
+.cert .st.now{color:var(--accent-text);font-weight:500}
+
+/* ============ RESTORE TEST ============ */
+/* A paper card at the foot of the services band. Switched off with the hidden attribute until it's published. */
+.offer-card{
+  margin-top:clamp(20px,3vw,32px);
+  display:grid;grid-template-columns:1fr minmax(240px,300px);gap:clamp(20px,4vw,48px);align-items:center;
+  background:var(--bg);color:var(--ink);border-radius:18px;padding:clamp(24px,4vw,40px);
+}
+.offer-card[hidden]{display:none}
+.offer-card .eyebrow{color:var(--accent-text);margin-bottom:12px}
+.offer-card h3{font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px}
+.offer-text p:last-child{margin:0;max-width:52ch;font-size:1.02rem}
+.price-card{background:var(--bg2);border-radius:14px;padding:22px 22px 24px}
+.price{font-weight:600;font-size:clamp(1.6rem,3vw,2rem);letter-spacing:-.03em;line-height:1.05;margin:0}
+.price-note{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute);margin:8px 0 20px}
+.price-card .btn{display:inline-block}
 
 /* ============ CONTACT ============ */
 .contact{text-align:center}
@@ -135,15 +166,15 @@ h2{font-weight:600;font-size:clamp(1.9rem,4.4vw,3.1rem);line-height:1.02;letter-
 /* ============ FOOTER ============ */
 footer{background:var(--dark);color:var(--cream-mute);padding:0 0 54px}
 .foot{max-width:var(--max);margin:0 auto;padding:26px var(--gut) 0;border-top:1px solid var(--dark3);display:flex;flex-wrap:wrap;gap:10px 40px;justify-content:space-between;font-size:.8rem}
-
-/* ============ REVEAL ============ */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.3,1)}
-.rv.in{opacity:1;transform:none}
+.legal{display:flex;flex-direction:column;gap:4px}
 
 @media (max-width:860px){
   .nav-links{display:none}
+  .nav-cta{margin-left:auto}
+  .offer-card{grid-template-columns:1fr}
+  .hero-bear[data-whoosh].whooshed{opacity:.22}
   .hero-bear{right:-16%;bottom:-6%;height:clamp(240px,62vw,380px);width:calc(clamp(240px,62vw,380px) * var(--ratio));opacity:.22}
-  .hero p,h1{max-width:none}
+  .hero p:not(.eyebrow),h1{max-width:none}
   .crest{grid-template-columns:1fr;gap:24px}
   .crest-bear{margin-left:0;height:clamp(170px,42vw,240px);width:calc(clamp(170px,42vw,240px) * var(--ratio))}
   .row{grid-template-columns:1fr;gap:4px}
@@ -154,7 +185,6 @@ footer{background:var(--dark);color:var(--cream-mute);padding:0 0 54px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
-  .card:hover{transform:none}
+  .card:hover{translate:none}
   body{transition:none}
 }
