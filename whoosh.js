@@ -5,16 +5,15 @@
  *  ----------------------------------------------------------------
  *  TUNING — the four numbers worth touching
  *  ----------------------------------------------------------------
- *    duration   how long the movement takes          1150 ms
- *    distance   how far it travels                     72 px
- *    blur       motion blur that clears on arrival      6 px
- *    ease       the curve. Slight overshoot so it
- *               lands with a definite stop rather
- *               than creeping into place
+ *    duration   how long the movement takes           700 ms
+ *    distance   how far it travels                     24 px
+ *    blur       motion blur that clears on arrival      0 px
+ *    ease       the curve. A plain slow-down, so it
+ *               settles without bouncing
  *
- *  Slower and heavier:  duration 1500, distance 100px
- *  Snappier:            duration 800,  distance 48px
- *  No overshoot:        ease 'cubic-bezier(.2,.8,.3,1)'
+ *  Stronger, as it was:  duration 1150, distance 72px, blur 6,
+ *                        ease 'cubic-bezier(.22,1.12,.34,1)'
+ *  Barely there:         duration 500,  distance 12px
  *  ----------------------------------------------------------------
  *
  *  Usage
@@ -26,10 +25,10 @@
  *  Directions: up · down · left · right · scale · fade · blur
  *
  *  Per element (all optional)
- *    data-whoosh-distance   default 72px
- *    data-whoosh-duration   default 1150   ms
+ *    data-whoosh-distance   default 24px
+ *    data-whoosh-duration   default 700    ms
  *    data-whoosh-delay      default 0      ms
- *    data-whoosh-blur       default 6      px, 0 to disable
+ *    data-whoosh-blur       default 0      px, 0 to disable
  *    data-whoosh-threshold  default 0.12   0-1
  *    data-whoosh-once       default true   "false" replays on re-entry
  *
@@ -47,13 +46,13 @@
 
   var D = win.WHOOSH_DEFAULTS || {};
   var CFG = {
-    distance:  D.distance  || '72px',
-    duration:  D.duration  || 1150,
+    distance:  D.distance  || '24px',
+    duration:  D.duration  || 700,
     delay:     D.delay     || 0,
-    blur:      D.blur      == null ? 6 : D.blur,
+    blur:      D.blur      == null ? 0 : D.blur,
     threshold: D.threshold || 0.12,
-    // transform: slight overshoot, so it arrives and stops rather than drifting in
-    ease:      D.ease      || 'cubic-bezier(.22,1.12,.34,1)',
+    // transform: a plain slow-down, no overshoot
+    ease:      D.ease      || 'cubic-bezier(.2,.8,.3,1)',
     // opacity and blur: plain decel, no overshoot
     easeSoft:  D.easeSoft  || 'cubic-bezier(.2,.7,.3,1)',
     // opacity and blur finish early, so it is solid and sharp before it lands
